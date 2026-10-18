@@ -24,7 +24,7 @@ blurb = "Short fragments from Pascal's unfinished notebooks: why we cannot sit s
 
 # Optional cover settings (defaults in tools/templates/cover.typ)
 accent = "#2f7fd6"              # bright blue (No. 01 is red). Kraft mutes blue to slate, so it is bright on purpose; on lighter stock (stone, granite, cream) it prints clearly blue
-cover_paper = "65 lb kraft cardstock"
+cover_paper = "65 lb stone cardstock"
 text_paper = "24 lb cream"
 cover_title_size = 28
 
