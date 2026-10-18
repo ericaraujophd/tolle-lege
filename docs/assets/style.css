@@ -1,0 +1,208 @@
+/* =========================================================================
+   tools/site/style.css  --  the website's styles
+   =========================================================================
+   build.py copies this file to docs/assets/style.css. Edit it here.
+
+   The look follows the books: cream paper, kraft brown, black text and one
+   deep-red accent (the same red as the cover rules and the thread).
+   ========================================================================= */
+
+:root {
+  --paper: #f5eee2;        /* page background: cream text paper */
+  --paper-2: #ece2d1;      /* slightly darker cream for panels */
+  --kraft: #b08a62;        /* kraft cardstock, behind the cover pictures */
+  --ink: #1d1a16;          /* body text */
+  --muted: #6b6155;        /* secondary text */
+  --rule: #d8cbb6;         /* hairlines */
+  --accent: #9e1b1f;       /* the red of the cover rules */
+  --serif: "EB Garamond", "Libertinus Serif", Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  line-height: 1.55;
+}
+
+a { color: var(--accent); }
+
+main, .masthead, footer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px;           /* phone gutter */
+}
+
+/* ---------------------------------------------------------------- header */
+.masthead {
+  text-align: center;
+  padding-top: 64px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--rule);
+}
+.kicker {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+.masthead h1 {
+  font-size: clamp(3rem, 9vw, 5.2rem);
+  font-weight: 400;
+  font-style: italic;
+  margin: 0.15em 0 0.05em;
+  line-height: 1;
+}
+/* The double rule under the title, like the covers: heavy red, thin red. */
+.masthead h1::after {
+  content: "";
+  display: block;
+  width: min(320px, 70%);
+  margin: 0.35em auto 0;
+  border-top: 3px solid var(--accent);
+  border-bottom: 1px solid var(--accent);
+  height: 4px;
+}
+.motto { margin: 0.8em 0 0; }
+.motto span { color: var(--muted); font-size: 0.9rem; margin-left: 0.4em; }
+.lede {
+  max-width: 34em;
+  margin: 1em auto 0;
+  color: var(--muted);
+}
+nav { margin-top: 1.6em; display: flex; justify-content: center; gap: 1.6em; flex-wrap: wrap; }
+nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 2px;
+}
+
+/* -------------------------------------------------------------- sections */
+section { padding: 56px 0 8px; }
+h2 {
+  font-weight: 400;
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.6em;
+}
+h3 { font-weight: 500; font-size: 1.3rem; margin: 0.2em 0 0.3em; }
+.section-note { color: var(--muted); margin-top: 0; }
+
+/* ----------------------------------------------------------------- books */
+.books { display: grid; gap: 28px; margin-top: 24px; }
+.book {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 28px;
+  padding: 24px;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+}
+/* The cover picture is printed black-and-red on white; "multiply" lays it on
+   the kraft colour behind it, which is exactly what ink does on kraft paper. */
+.cover-wrap {
+  background: var(--kraft);
+  border-radius: 10px;              /* the rounded corners of the real book */
+  overflow: hidden;
+  aspect-ratio: 3.5 / 5;
+  box-shadow: 0 6px 18px rgba(60, 40, 20, 0.22);
+}
+.cover-wrap img { width: 100%; height: 100%; display: block; mix-blend-mode: multiply; }
+.cover-wrap.placeholder {
+  display: flex; align-items: center; justify-content: center;
+  background: repeating-linear-gradient(135deg, #c4a582 0 10px, #bd9d78 10px 20px);
+}
+.cover-wrap.placeholder span {
+  font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: #4a3a2a; background: rgba(245, 238, 226, 0.75); padding: 4px 10px;
+}
+.info .num {
+  margin: 0; font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent);
+}
+.info h3 { font-size: 2rem; font-style: italic; font-weight: 400; margin: 0.1em 0 0; line-height: 1.1; }
+.info .sub { margin: 0; font-style: italic; color: var(--muted); }
+.info .author {
+  margin: 0.5em 0 0; font-size: 0.9rem; letter-spacing: 0.12em; text-transform: uppercase;
+}
+.info .summary { margin: 0.8em 0 0.4em; }
+.info .meta { margin: 0; font-size: 0.9rem; color: var(--muted); }
+.book.soon .info { opacity: 0.85; }
+
+.downloads { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.btn {
+  display: inline-flex; flex-direction: column; align-items: flex-start;
+  padding: 8px 16px;
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.btn small { font-weight: 400; font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.primary small { color: #f2d6d6; }
+.btn:hover { filter: brightness(1.08); }
+
+/* ------------------------------------------------------------ how to make */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+.materials { padding-left: 1.1em; margin: 0.3em 0; }
+.materials li { margin: 0.3em 0; }
+.note { color: var(--muted); font-size: 1rem; }
+
+.steps {
+  list-style: none;
+  counter-reset: step;
+  padding: 0;
+  margin: 36px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 18px;
+}
+.steps li {
+  counter-increment: step;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 16px 18px;
+}
+.steps h4 { margin: 0; font-weight: 500; font-size: 1.15rem; }
+.steps h4::before {
+  content: counter(step);
+  display: inline-block;
+  min-width: 1.6em;
+  color: var(--accent);
+  font-style: italic;
+}
+.steps p { margin: 0.4em 0 0; font-size: 1.02rem; }
+
+/* ----------------------------------------------------------------- footer */
+footer {
+  margin-top: 56px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ----------------------------------------------------------------- phones */
+@media (max-width: 680px) {
+  .book { grid-template-columns: 1fr; padding: 18px; }
+  .cover-wrap { width: 62%; margin: 0 auto; }
+  .two-col { grid-template-columns: 1fr; gap: 8px; }
+  .masthead { padding-top: 40px; }
+}

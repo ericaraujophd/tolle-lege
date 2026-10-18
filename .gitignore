@@ -1,0 +1,5 @@
+# Printer-corrected files from `build.py --back-offset` (personal, not published)
+build/
+__pycache__/
+*.pyc
+.DS_Store

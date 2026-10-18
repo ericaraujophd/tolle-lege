@@ -1,0 +1,182 @@
+<!doctype html>
+<!--
+  tools/site/index.template.html  --  the website page TEMPLATE.
+  build.py fills 
+    <article class="book" id="01-aquinas-on-curiosity">
+      <div class="cover-wrap"><img src="books/01-aquinas-on-curiosity/cover.png" alt="Front cover of On Curiosity" loading="lazy"></div>
+      <div class="info">
+      <p class="num">No. 01</p>
+      <h3>On Curiosity</h3>
+      <p class="sub">and Studiousness</p>
+      <p class="author">Thomas Aquinas</p>
+      <p class="summary">Aquinas on the virtue that orders our desire to know (studiousness) and the vice that scatters it (curiosity). Eight centuries old and written for the age of the infinite scroll.</p>
+        <p class="meta">24 pages · 6 interior sheets + 1 cover sheet · Translated by the Fathers of the English Dominican Province. Second and revised edition, 1920.</p>
+        <div class="downloads">
+          <a class="btn primary" href="books/01-aquinas-on-curiosity/01-aquinas-on-curiosity-interior.pdf" download>Interior <small>6 sheets · 674 KB</small></a>
+          <a class="btn primary" href="books/01-aquinas-on-curiosity/01-aquinas-on-curiosity-cover.pdf" download>Cover <small>1 sheet · 42 KB</small></a>
+          <a class="btn" href="books/01-aquinas-on-curiosity/01-aquinas-on-curiosity-reading.pdf">Read online <small>100 KB</small></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="book soon">
+      <div class="cover-wrap placeholder"><span>In preparation</span></div>
+      <div class="info">
+      <p class="num">No. 02</p>
+      <h3>On Diversion</h3>
+      <p class="sub">from the Pensées</p>
+      <p class="author">Blaise Pascal</p>
+      <p class="summary">Pascal on why we cannot sit quietly in a room, and why we reach for diversion instead. A companion to No. 01.</p>
+        <p class="meta">Translated by W. F. Trotter, 1910.</p>
+      </div>
+    </article> with one card per title (from each title.toml) and
+  October 17, 2026 with today's date, and writes the result to docs/index.html,
+  which GitHub Pages serves. Edit THIS file, not docs/index.html (which is
+  overwritten by every build). The styles are in tools/site/style.css.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tolle Lege · pocket classics to print and sew</title>
+  <meta name="description" content="Free pocket-size booklets of public-domain classics, ready to print at home, fold, sew and trim.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <p class="kicker">Pocket classics · 3.5 × 5 in · print, fold, sew</p>
+  <h1>Tolle Lege</h1>
+  <p class="motto"><em>“Take up and read.”</em> <span>Augustine, Confessions VIII.12</span></p>
+  <p class="lede">Short public-domain texts set as pocket booklets you can make at home:
+    a few sheets of paper, a cardstock cover, a line of thread. Every file here is free
+    to download, print and share.</p>
+  <nav>
+    <a href="#books">The books</a>
+    <a href="#make">How to make one</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<main>
+
+<section id="books">
+  <h2>The books</h2>
+  <p class="section-note">Each book needs two files: the <strong>interior</strong> (printed on text paper)
+    and the <strong>cover</strong> (printed on cardstock). Every print run makes two copies.</p>
+  <div class="books">
+
+    <article class="book" id="01-aquinas-on-curiosity">
+      <div class="cover-wrap"><img src="books/01-aquinas-on-curiosity/cover.png" alt="Front cover of On Curiosity" loading="lazy"></div>
+      <div class="info">
+      <p class="num">No. 01</p>
+      <h3>On Curiosity</h3>
+      <p class="sub">and Studiousness</p>
+      <p class="author">Thomas Aquinas</p>
+      <p class="summary">Aquinas on the virtue that orders our desire to know (studiousness) and the vice that scatters it (curiosity). Eight centuries old and written for the age of the infinite scroll.</p>
+        <p class="meta">24 pages · 6 interior sheets + 1 cover sheet · Translated by the Fathers of the English Dominican Province. Second and revised edition, 1920.</p>
+        <div class="downloads">
+          <a class="btn primary" href="books/01-aquinas-on-curiosity/01-aquinas-on-curiosity-interior.pdf" download>Interior <small>6 sheets · 674 KB</small></a>
+          <a class="btn primary" href="books/01-aquinas-on-curiosity/01-aquinas-on-curiosity-cover.pdf" download>Cover <small>1 sheet · 42 KB</small></a>
+          <a class="btn" href="books/01-aquinas-on-curiosity/01-aquinas-on-curiosity-reading.pdf">Read online <small>100 KB</small></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="book soon">
+      <div class="cover-wrap placeholder"><span>In preparation</span></div>
+      <div class="info">
+      <p class="num">No. 02</p>
+      <h3>On Diversion</h3>
+      <p class="sub">from the Pensées</p>
+      <p class="author">Blaise Pascal</p>
+      <p class="summary">Pascal on why we cannot sit quietly in a room, and why we reach for diversion instead. A companion to No. 01.</p>
+        <p class="meta">Translated by W. F. Trotter, 1910.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="make">
+  <h2>How to make one</h2>
+
+  <div class="two-col">
+    <div>
+      <h3>You will need</h3>
+      <ul class="materials">
+        <li><strong>Text paper:</strong> US Letter, 24 lb (90 gsm). Cream looks like a real book.</li>
+        <li><strong>Cover:</strong> 65 lb cardstock. Kraft looks the part; lighter colours show the red accent better.</li>
+        <li><strong>A printer</strong> that prints both sides, or patience to flip sheets by hand.</li>
+        <li><strong>A cutter:</strong> a rotary trimmer, or a sharp craft knife, a steel straightedge and a cutting mat.</li>
+        <li><strong>A bone folder</strong> (or the back of a spoon) for crisp folds.</li>
+        <li><strong>To bind:</strong> a sewing machine with a denim needle (100/16) and top-stitch thread; or a needle and thread by hand; or a long-reach stapler.</li>
+        <li><strong>Optional:</strong> a 1/4 in (R6) corner rounder.</li>
+      </ul>
+      <p class="note">One print run (1 cover sheet + the interior sheets) makes <strong>two</strong> books.
+        For 25 books, print 13 runs.</p>
+    </div>
+
+    <div>
+      <h3>Before your first print</h3>
+      <p>Print the <a href="tools/alignment-test.pdf">alignment test</a> double-sided and hold it up
+        to a window. If the two crosshairs line up within a millimetre or two, you are ready.
+        If not, the README explains how to build files corrected for your printer.</p>
+      <h3>Print settings</h3>
+      <ul class="materials">
+        <li><strong>Scale: 100% / Actual size.</strong> Never “fit to page.”</li>
+        <li><strong>Two-sided, flip on long edge.</strong></li>
+        <li>Cardstock: if your printer will not print both sides of it, print page 1, put the sheet back in, and print page 2.</li>
+        <li>Inkjet on cardstock: choose a matte paper type and high quality for richer colour.</li>
+      </ul>
+    </div>
+  </div>
+
+  <ol class="steps">
+    <li><h4>Cut the sheets in half</h4>
+      <p>Cut every sheet on the <strong>dashed line</strong> across the middle. Keep the top halves
+        and the bottom halves in two piles: each pile is one complete book.</p></li>
+    <li><h4>Check the order</h4>
+      <p>A small grey label in the margin says “sheet 3 of 6.” Sheet 1 goes on the outside,
+        the last sheet in the centre.</p></li>
+    <li><h4>Fold</h4>
+      <p>Fold each half sheet on its own, the side marked “front” outside, through the short
+        <strong>fold marks</strong> at the top and bottom centre. Crease with the bone folder.
+        Score the cover before folding it.</p></li>
+    <li><h4>Nest</h4>
+      <p>Slide the last sheet inside the one before, and so on out to sheet 1, then put everything
+        inside the cover. Tap the spine and the top edge on the table to square them.</p></li>
+    <li><h4>Sew</h4>
+      <p>Open the book flat, cover side up, and sew straight down the fold with the longest straight
+        stitch. Do not backstitch (it perforates the paper): leave tails, pull them inside and tie them
+        at the centre spread. No machine? A three-hole pamphlet stitch by hand, or two staples, work too.</p></li>
+    <li><h4>Trim</h4>
+      <p>Cut <strong>on</strong> the light grey <strong>crosses</strong> at the corners of the cover,
+        in any order: each line runs a little way along its edge, so it is still there after you trim
+        the other edges. A rotary trimmer or a knife with a steel straightedge both work.</p></li>
+    <li><h4>Round the corners</h4>
+      <p>Round the two corners of the open side with a 1/4 in corner rounder. Done.</p></li>
+  </ol>
+</section>
+
+<section id="about">
+  <h2>About</h2>
+  <p>Tolle Lege collects short classics on attention, study and the spiritual life, always in
+    the most recent translation that is in the public domain, set for a pocket and made by hand.
+    It began as booklets for a student reading group at Calvin University.</p>
+  <p>The texts are in the public domain. The layouts and editorial pages are shared under
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> and the code under the MIT
+    license. Everything, including the code that builds these files, is on
+    <a href="https://github.com/ericaraujophd/tolle-lege">GitHub</a>.</p>
+</section>
+
+</main>
+
+<footer>
+  <p>Tolle Lege · made by Eric Araújo · updated October 17, 2026</p>
+</footer>
+
+</body>
+</html>

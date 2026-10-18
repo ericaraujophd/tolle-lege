@@ -1,0 +1,14 @@
+# No. 02 is in preparation: only the website reads this file for now.
+# When the text is ready, add book.typ, cover.typ, intro.typ, reflection.typ
+# and content (see titles/01-aquinas-on-curiosity for the pattern) and set
+# status = "available".
+status = "in-preparation"
+slug = "02-pascal-on-diversion"
+
+number = "No. 02"
+title = "On Diversion"
+subtitle = "from the Pensées"
+author = "Blaise Pascal"
+source = "Pensées, selected fragments"
+translation = "Translated by W. F. Trotter, 1910."
+summary = "Pascal on why we cannot sit quietly in a room, and why we reach for diversion instead. A companion to No. 01."

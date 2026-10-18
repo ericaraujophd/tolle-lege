@@ -1,0 +1,31 @@
+# =========================================================================
+# title.toml  --  everything that is specific to this title
+# =========================================================================
+# Read by book.typ and cover.typ (through the shared templates in tools/)
+# and by the top-level build.py (for file names and the website).
+# Text values are plain text; `blurb` may use Typst markup (_italic_).
+
+status = "available"            # "available" or "in-preparation"
+slug = "01-aquinas-on-curiosity" # folder name; also used for file names
+
+number = "No. 01"
+title = "On Curiosity"
+subtitle = "and Studiousness"
+author = "Thomas Aquinas"
+source = "Summa Theologiae II-II, Questions 166-167"
+translation = "Translated by the Fathers of the English Dominican Province. Second and revised edition, 1920."
+edition_note = "The text follows the 1920 translation as published online at newadvent.org. A few transcription slips in the online text have been corrected; references and wording are otherwise unchanged."
+date = "Fall 2026"
+
+# Back cover
+quote = "“Just as in respect of his corporeal nature man naturally desires the pleasures of food and sex, so, in respect of his soul, he naturally desires to know something.”"
+quote_ref = "II-II, Question 166, Article 2"
+blurb = "Two short questions from the _Summa Theologiae_ on the virtue that orders our desire to know, and the vice that scatters it."
+
+# Optional cover settings (defaults shown in tools/templates/cover.typ)
+accent = "#9e1b1f"              # deep red, matches red top-stitch thread
+cover_paper = "65 lb kraft cardstock"
+text_paper = "24 lb cream"
+
+# Website only
+summary = "Aquinas on the virtue that orders our desire to know (studiousness) and the vice that scatters it (curiosity). Eight centuries old and written for the age of the infinite scroll."

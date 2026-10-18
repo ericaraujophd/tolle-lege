@@ -1,0 +1,6 @@
+# Everything needed to build the PDFs and the website: python3 build.py
+typst==0.15.0      # typesetting (Typst, with Libertinus Serif built in)
+pypdf>=4.0         # imposition: placing pages on letter sheets
+reportlab>=4.0     # imposition: drawing the cut line, crosses and labels
+# Only for `python3 build.py --extract` (regenerating a title's content.typ):
+beautifulsoup4>=4.12
