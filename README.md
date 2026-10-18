@@ -6,7 +6,7 @@ Pocket booklets of public-domain classics, **3.5 × 5 in**, ready to print at ho
 fold, sew through the fold and trim. Each print run makes two copies.
 
 **Just want to print one?** Go to the website:
-**https://ericaraujophd.github.io/tolle-lege/**. Every book has its two print files
+**https://ericaraujo.com/tolle-lege/**. Every book has its two print files
 (interior and cover) and the step-by-step guide. Nothing to install.
 
 This README is for building the files yourself or adding a new title.
