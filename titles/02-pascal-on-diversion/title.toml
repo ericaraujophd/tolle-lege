@@ -15,7 +15,7 @@ author = "Blaise Pascal"
 source = "Pensées, fragments 127-425 (Brunschvicg numbering)"
 translation = "Translated by W. F. Trotter. Harvard Classics edition, 1910."
 edition_note = "The fragments follow Trotter's text. Their order and the three part titles are the editor's. Footnote markers have been removed, one transcription slip has been corrected (see extract.py in the source files), and fragment 425 is given in its opening paragraphs only."
-editor = "Eric Araújo"        # credited on page 2 and in the colophon
+editor = "Eric Araújo"        # "Designed by", on page 2 and in the colophon
 date = "Fall 2026"
 
 # Back cover

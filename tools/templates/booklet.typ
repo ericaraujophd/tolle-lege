@@ -166,7 +166,7 @@
 
     #meta.edition_note
 
-    Edited by #meta.at("editor", default: "Eric Araújo"). Part of #series, pocket classics to print, fold and sew yourself: #series-url.
+    Designed by #meta.at("editor", default: "Eric Araújo"). Part of #series, pocket classics to print, fold and sew yourself: #series-url.
     This booklet may be freely copied and shared.
   ]
 }
@@ -212,7 +212,7 @@
     #line(length: 15%, stroke: 0.4pt)
     #v(2pt)
     A #series booklet. \
-    Edited and designed by #meta.at("editor", default: "Eric Araújo"). \
+    Designed by #meta.at("editor", default: "Eric Araújo"). \
     Set in Libertinus Serif. \
     Printed, folded, sewn and trimmed by hand. \
     #meta.date
