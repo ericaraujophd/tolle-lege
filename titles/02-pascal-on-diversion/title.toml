@@ -1,14 +1,32 @@
-# No. 02 is in preparation: only the website reads this file for now.
-# When the text is ready, add book.typ, cover.typ, intro.typ, reflection.typ
-# and content (see titles/01-aquinas-on-curiosity for the pattern) and set
-# status = "available".
-status = "in-preparation"
+# =========================================================================
+# title.toml  --  everything that is specific to this title
+# =========================================================================
+# Read by book.typ and cover.typ (through the shared templates in tools/)
+# and by the top-level build.py (for file names and the website).
+# Text values are plain text; `blurb` may use Typst markup (_italic_).
+
+status = "available"
 slug = "02-pascal-on-diversion"
 
 number = "No. 02"
 title = "On Diversion"
 subtitle = "from the Pensées"
 author = "Blaise Pascal"
-source = "Pensées, selected fragments"
-translation = "Translated by W. F. Trotter, 1910."
-summary = "Pascal on why we cannot sit quietly in a room, and why we reach for diversion instead. A companion to No. 01."
+source = "Pensées, fragments 127-425 (Brunschvicg numbering)"
+translation = "Translated by W. F. Trotter. Harvard Classics edition, 1910."
+edition_note = "The fragments follow Trotter's text. Their order and the three part titles are the editor's. Footnote markers have been removed, one transcription slip has been corrected (see extract.py in the source files), and fragment 425 is given in its opening paragraphs only."
+date = "Fall 2026"
+
+# Back cover
+quote = "“All the unhappiness of men arises from one single fact, that they cannot stay quietly in their own chamber.”"
+quote_ref = "Pensées, 139"
+blurb = "Short fragments from Pascal's unfinished notebooks: why we cannot sit still, what we reach for instead, and what would actually satisfy us."
+
+# Optional cover settings (defaults in tools/templates/cover.typ)
+accent = "#9e1b1f"
+cover_paper = "65 lb kraft cardstock"
+text_paper = "24 lb cream"
+cover_title_size = 28
+
+# Website only
+summary = "Pascal on why we cannot sit quietly in a room, why we reach for diversion instead, and why it never satisfies. A companion to No. 01, written three centuries before the smartphone."

@@ -107,7 +107,9 @@
 
 #let article(num, title) = {
   v(0.6em)
-  block(breakable: false, below: 0.6em)[
+  // sticky: true keeps the heading on the same page as the paragraph that
+  // follows it (no heading stranded at the foot of a page).
+  block(breakable: false, sticky: true, below: 0.6em)[
     #line(length: 30%, stroke: 0.4pt + luma(120))
     #v(-0.2em)
     #text(size: 7pt, tracking: 0.1em)[ARTICLE #num] \
@@ -120,7 +122,8 @@
 // title, kept together with the first lines that follow.
 #let section(num, title: none) = {
   v(0.5em)
-  block(breakable: false, below: 0.45em)[
+  // sticky: true keeps the number and title with the fragment's first lines.
+  block(breakable: false, sticky: true, below: 0.45em)[
     #text(size: 7pt, tracking: 0.1em)[#num]
     #if title != none [ #h(0.4em) #text(style: "italic")[#title]]
   ]

@@ -16,7 +16,7 @@ This README is for building the files yourself or adding a new title.
 | No. | Title | Author | Status |
 |---|---|---|---|
 | 01 | *On Curiosity and Studiousness* | Thomas Aquinas | available |
-| 02 | *On Diversion*, from the *Pensées* | Blaise Pascal | in preparation |
+| 02 | *On Diversion*, from the *Pensées* | Blaise Pascal | available |
 
 Always in the most recent translation that is in the public domain.
 
