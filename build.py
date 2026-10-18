@@ -73,6 +73,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import impose  # noqa: E402
 
 MIN_NOTES = 1   # fewest ruled notes pages (the last one carries the colophon)
+REPRODUCIBLE_TIMESTAMP = 1767225600   # 2026-01-01 00:00 UTC, see compile_typst
 
 
 # ------------------------------------------------------------------ helpers
@@ -86,7 +87,14 @@ def compile_typst(src: Path, out: Path, **inputs) -> None:
     sys.inputs inside Typst (all values must be strings)."""
     out.parent.mkdir(parents=True, exist_ok=True)
     fmt = out.suffix.lstrip(".")
-    kwargs = {"root": str(ROOT), "sys_inputs": {k: str(v) for k, v in inputs.items()}}
+    kwargs = {
+        "root": str(ROOT),
+        "sys_inputs": {k: str(v) for k, v in inputs.items()},
+        # A FIXED timestamp makes the PDFs reproducible: building twice gives
+        # byte-identical files, so git only shows a PDF as changed when its
+        # content really changed (not just its embedded creation date).
+        "timestamp": REPRODUCIBLE_TIMESTAMP,
+    }
     if fmt == "png":
         kwargs.update(format="png", ppi=160)
     typst.compile(str(src), output=str(out), **kwargs)

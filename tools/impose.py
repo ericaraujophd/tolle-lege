@@ -193,6 +193,9 @@ def back_correction(offset_mm):
     mm = IN / 25.4
     return dx_mm * mm, -dy_mm * mm
 
+# invariant=1 on every reportlab Canvas below: no creation date or random ID
+# is written into the PDF, so building twice gives byte-identical files and
+# git only sees a change when something really changed.
 MARK_GREY = Color(0.35, 0.35, 0.35)
 # The trim crosses are lighter, so a sliver left by a slightly-off cut barely shows.
 FRAME_GREY = Color(0.5, 0.5, 0.5)
@@ -265,7 +268,7 @@ def marks_overlay(label, with_marks=True):
     office printers cannot print there and would silently drop it.
     """
     buf = io.BytesIO()
-    c = canvas.Canvas(buf, pagesize=(SHEET_W, SHEET_H))
+    c = canvas.Canvas(buf, pagesize=(SHEET_W, SHEET_H), invariant=1)
     c.setStrokeColor(MARK_GREY)
     c.setFillColor(MARK_GREY)
     c.setLineWidth(0.4)
@@ -443,7 +446,7 @@ def alignment_test(out_path, correct_back=None):
     This test itself is never corrected, so it always shows the raw error.
     """
     buf = io.BytesIO()
-    c = canvas.Canvas(buf, pagesize=(SHEET_W, SHEET_H))
+    c = canvas.Canvas(buf, pagesize=(SHEET_W, SHEET_H), invariant=1)
     # With correct_back = an offset in mm, the BACK crosshair is drawn with
     # the same correction the booklets get. Printed, the two crosshairs should
     # then coincide: that verifies the correction (alignment_check.pdf).
