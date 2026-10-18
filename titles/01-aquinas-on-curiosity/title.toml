@@ -15,6 +15,7 @@ author = "Thomas Aquinas"
 source = "Summa Theologiae II-II, Questions 166-167"
 translation = "Translated by the Fathers of the English Dominican Province. Second and revised edition, 1920."
 edition_note = "The text follows the 1920 translation as published online at newadvent.org. A few transcription slips in the online text have been corrected; references and wording are otherwise unchanged."
+editor = "Eric Araújo"        # credited on page 2 and in the colophon
 date = "Fall 2026"
 
 # Back cover

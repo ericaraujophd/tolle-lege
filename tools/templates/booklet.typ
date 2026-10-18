@@ -40,6 +40,11 @@
 // cover quote...) lives in that title's title.toml, read into `meta`.
 // =========================================================================
 
+// The series. Shown with the number on the title page ("TOLLE LEGE · NO. 02"),
+// in the edition note and in the colophon, and on every cover.
+#let series = "Tolle Lege"
+#let series-url = "ericaraujo.com/tolle-lege"
+
 // How many ruled notes pages to add at the end; the build passes this in.
 // Compiled by hand it defaults to 1.
 #let notes-count = int(sys.inputs.at("notes", default: "1"))
@@ -132,7 +137,7 @@
 // ------------------------------------------------------------- title page
 #let title-page(meta) = align(center)[
   #v(0.35in)
-  #text(size: 6.5pt, tracking: 0.15em)[#upper(meta.number)]
+  #text(size: 6.5pt, tracking: 0.15em)[#upper(series) #h(0.3em)·#h(0.3em) #upper(meta.number)]
   #v(0.45in)
   #text(size: 17pt, style: "italic")[#meta.title] \
   #v(1pt)
@@ -161,7 +166,7 @@
 
     #meta.edition_note
 
-    Part of Tolle Lege, pocket classics to print, fold and sew yourself.
+    Edited by #meta.at("editor", default: "Eric Araújo"). Part of #series, pocket classics to print, fold and sew yourself: #series-url.
     This booklet may be freely copied and shared.
   ]
 }
@@ -197,13 +202,17 @@
   }
 }
 
-// The colophon: how the book was made. It sits at the foot of the LAST notes
+// The colophon: who made the book and how. The editor's name comes from
+// title.toml (`editor`), defaulting to the series editor, Eric Araújo.
+// It also appears in the edition note on page 2. It sits at the foot of the LAST notes
 // page, so it never needs a page of its own.
 #let colophon(meta) = {
   set par(justify: false, leading: 0.45em)
   align(center, text(size: 6.5pt)[
     #line(length: 15%, stroke: 0.4pt)
     #v(2pt)
+    A #series booklet. \
+    Edited and designed by #meta.at("editor", default: "Eric Araújo"). \
     Set in Libertinus Serif. \
     Printed, folded, sewn and trimmed by hand. \
     #meta.date

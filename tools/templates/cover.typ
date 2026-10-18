@@ -31,6 +31,10 @@
 // it in after it has counted the interior pages.
 #let interior-pages = sys.inputs.at("pages", default: "24")
 
+// The series name and website, on the front (with the number) and the back.
+#let series = "Tolle Lege"
+#let series-url = "ericaraujo.com/tolle-lege"
+
 #let cover(meta) = {
   // One accent colour, Field Notes style. Default: deep red, chosen to match
   // a red top-stitch thread on the spine. A title may set `accent` in its
@@ -53,7 +57,7 @@
   // rules are fairly heavy (1.4 pt + 0.5 pt) so the colour reads at arm's
   // length on kraft; thinner red lines looked almost black.
   align(center)[
-    #text(size: 8.5pt, tracking: 0.18em, fill: accent)[#upper(meta.number)]
+    #text(size: 8.5pt, tracking: 0.18em, fill: accent)[#upper(series) #h(0.35em)·#h(0.35em) #upper(meta.number)]
     #v(0.45in)
     #line(length: 100%, stroke: 1.4pt + accent)
     #v(-0.55em)
@@ -128,6 +132,12 @@
       #eval(meta.blurb, mode: "markup")
     ]
     v(1fr)
-    align(center, text(size: 7.5pt)[Public-domain text. Free to copy and share.])
+    align(center)[
+      #text(size: 9pt, tracking: 0.18em, fill: accent)[#upper(series)] \
+      #v(1pt)
+      #text(size: 7.5pt, style: "italic")[Take up and read.] \
+      #v(4pt)
+      #text(size: 7pt)[Public-domain text. Free to copy and share. \ #series-url]
+    ]
   }
 }
