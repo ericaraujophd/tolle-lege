@@ -126,6 +126,9 @@ PAGE_W = 3.5 * IN    # final booklet page
 PAGE_H = 5.0 * IN
 
 FOLD_X = SHEET_W / 2          # the fold is the vertical centre of the sheet
+# Nothing is drawn closer than this to any paper edge: most home printers
+# cannot print there (see the TRIM CROSSES block).
+SAFE_EDGE = 0.17 * IN
 CUT_Y = SHEET_H / 2           # the cut is the horizontal centre of the sheet
 # Each half sheet is 5.5 in tall and each page 5 in, so 0.5 in is left over.
 # We split it evenly: 0.25 in of waste above and below each copy (HEAD_FOOT).
@@ -315,6 +318,13 @@ def marks_overlay(label, with_marks=True):
         arm_in = 0.35 * IN     # along the page edge
         arm_out_x = 0.30 * IN  # into the side waste (0.75 in wide)
         arm_out_y = 0.20 * IN  # into the head/foot waste (0.25 in tall)
+        # SAFE ZONE (2026-10-18): home inkjets cannot print in the outer
+        # ~0.12-0.17 in of the sheet, and print previews show anything there
+        # as "off the page". At the very top and bottom of the sheet the head
+        # of copy A and the foot of copy B are only 0.25 in from the paper
+        # edge, so there the outward arm is shortened to stop SAFE_EDGE from
+        # the edge. The inward arms (the ones you actually cut on) are
+        # unchanged.
         c.setStrokeColor(FRAME_GREY)
         c.setLineWidth(frame_lw)
         left_x, right_x = FOLD_X - PAGE_W, FOLD_X + PAGE_W   # the fore-edges
@@ -327,7 +337,10 @@ def marks_overlay(label, with_marks=True):
                     # horizontal arm: outward into side waste, inward along the edge
                     c.line(x + xdir * arm_out_x, yl, x - xdir * arm_in, yl)
                     # vertical arm: outward into head/foot waste, inward along the edge
-                    c.line(xl, y + ydir * arm_out_y, xl, y - ydir * arm_in)
+                    # How far out this arm may go before reaching the safe zone.
+                    room = (SHEET_H - SAFE_EDGE - y) if ydir > 0 else (y - SAFE_EDGE)
+                    out_y = min(arm_out_y, room)
+                    c.line(xl, y + ydir * out_y, xl, y - ydir * arm_in)
         c.setStrokeColor(MARK_GREY)
 
         # ---- FOLD: a short stem on the fold line, in the head and foot waste
@@ -336,7 +349,8 @@ def marks_overlay(label, with_marks=True):
         c.setLineWidth(0.4)
         for base_y in COPY_Y.values():
             for y0, d in ((base_y + PAGE_H, +1), (base_y, -1)):
-                c.line(FOLD_X, y0 + d * (half + 0.01 * IN), FOLD_X, y0 + d * 0.15 * IN)
+                room = (SHEET_H - SAFE_EDGE - y0) if d > 0 else (y0 - SAFE_EDGE)
+                c.line(FOLD_X, y0 + d * (half + 0.01 * IN), FOLD_X, y0 + d * min(0.15 * IN, room))
 
         # ---- CUTTING ORDER reminder: tiny rotated text in the RIGHT side
         # margin of each copy. With the corner crosses, any order works;
