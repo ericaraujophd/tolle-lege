@@ -6,7 +6,7 @@ Run:  python3 notebooks/01-first-snow/draw_art.py   (writes art.svg beside it)
 
 THE DRAWING (version 5, 2026-10-20). A girl of about nine or ten, in true
 profile facing right, her head tipped back to look up at the falling snow.
-Her hair is tied in a high ponytail; she wears a knee-length coat, tights
+Her hair is in a ponytail that hangs down her back; she wears a knee-length coat, tights
 and ankle boots, arms relaxed at her sides. Realistic proportions (about seven
 heads tall, head scaled by HEAD_SCALE) and a real facial profile: brow, small nose, lips, chin, throat.
 (Earlier versions were geometric or cartoon figures; Eric asked for the
@@ -45,30 +45,40 @@ def rot(pts, ang, cx, cy):
     a=math.radians(ang); c,s=math.cos(a),math.sin(a)
     return [(cx+x*c-y*s, cy+x*s+y*c) for x,y in pts]
 
-# HEAD, in profile facing right and tipped back about 34 degrees so she
-# looks up at the snow. Points go round the outline clockwise from the nape;
-# a Catmull-Rom spline (spline()) draws a smooth curve through them.
-head=[(100,92),(92.6,87.2),(82.9,74.8),(80.4,59.0),(87.7,45.9),(100.8,41.2),  # back, crown
-      (112.9,45.1),(119.8,51.3),(122.6,55.6),                                  # forehead, brow
-      (128.4,59.0),(131.6,60.3),(128.8,63.9),                                  # nose
-      (131.0,66.1),(130.9,68.2),(132.9,69.6),                                  # lips
-      (133.0,72.6),(135.4,75.6),(132.6,79.4),                                  # chin
-      (124,86.5),(116.5,94),(112,102)]                                         # throat
-# The head and hair are drawn at the size above, then SCALED DOWN about the
-# throat (see the <g transform> below): 0.8 gives a child of about seven
-# heads tall, which reads slimmer and gentler than a big head.
-HEAD_SCALE = 0.8
-head_parts = [spline(head)]
-# HAIR: a smooth cap over the back of the head, and a ponytail tied high
-# at the back that swings down to the shoulders
-head_parts.append(spline([(106.5,42),(91,42.4),(80.2,51.6),(77.2,64),(79,77),(86,85),
-                          (97,76),(103,58)]))
-head_parts.append(spline([(83,50),(75.5,54),(71,64),(70.5,78),(72.5,93),(75.5,103),
-                          (78.5,106),(79.5,99),(78.6,86),(79.4,72),(82.5,61)]))
-parts.append(f'<g transform="translate(112 102) scale({HEAD_SCALE}) translate(-112 -102)">'
-             + "".join(f'<path d="{d}" fill="{INK}"/>' for d in head_parts) + "</g>")
-# NECK
-P(spline([(102,92),(109,99),(111.5,104),(111,113),(101,114),(100.5,103)]))   # slim, short
+# HEAD, NECK AND HAIR (version 7)
+# The head is drawn upright (facing right, cranium centred on 0,0, about 50
+# units tall), scaled, tipped back by TILT degrees and then moved so that its
+# NAPE (the back of the neck, just under the skull) sits on the line of her
+# back. When someone looks up, the neck bends with the head: the throat
+# becomes a long diagonal from chin to collarbone and the nape gets short.
+# The neck shape below joins those points to the shoulders, so the head
+# never sits on a stalk.
+TILT, SCALE, NAPE = -34, 0.78, (96, 97)   # 0.78: a slim, child-sized head
+upright = [(-11,24),(-19,10),(-20,-4),(-14,-17),(-2,-23),(10,-20),(17,-11),(19,-3),  # nape..brow
+           (18.7,1.5),(21,7.5),(21.6,9.6),(19.4,11.2),                               # nose
+           (20.2,13.8),(19.2,15.4),(19.9,17.2),                                      # lips
+           (18.2,19.8),(18.6,23),(15,26.8),(8,29)]                                   # chin, throat
+def place(pts):
+    """Scale, tilt and move upright head coordinates into the picture. The
+    shift is fixed by where the NAPE point (-11, 24) must land, so any point
+    of the head (the ponytail tie, say) can be placed the same way."""
+    a = math.radians(TILT); c, s_ = math.cos(a), math.sin(a)
+    tf = lambda x, y: (x*SCALE*c - y*SCALE*s_, x*SCALE*s_ + y*SCALE*c)
+    nx, ny = tf(-11, 24)
+    dx, dy = NAPE[0]-nx, NAPE[1]-ny
+    return [(tf(x, y)[0]+dx, tf(x, y)[1]+dy) for x, y in pts]
+head = place(upright)
+P(spline(head))
+# NECK: nape -> down the back; throat (last head points) -> down to the chest
+throat = head[-1]
+P(spline([NAPE, (head[-2][0]-2, head[-2][1]+1), throat, (throat[0]+1, throat[1]+8),
+          (115, 114), (104, 118), (93, 114), (92.5, 104)]))
+# PONYTAIL: tied at the back of the head, it hangs straight down with gravity,
+# a little away from her neck, tapering to a soft point at the shoulder blade
+tie = place([(-18, -9)])[0]          # high on the back of the head
+P(spline([(tie[0]+2, tie[1]-4), (tie[0]-3, tie[1]-3), (tie[0]-6, tie[1]+6), (tie[0]-7, tie[1]+20),
+          (tie[0]-5.5, tie[1]+34), (tie[0]-2.5, tie[1]+42), (tie[0]-1, tie[1]+36),
+          (tie[0]-1.5, tie[1]+20), (tie[0]+1, tie[1]+8), (tie[0]+4, tie[1]+2)]))
 # COAT (profile): soft shoulder, straight back, gentle flare to the knee
 coat=[(98,104),(92,110),(89,124),(89.5,145),(88,170),(85,198),(85.5,211),(104,214.5),(123,211.5),
       (124.5,206),(120.5,184),(117,163),(119,147),(119.5,131),(116.5,116),(110,107)]
