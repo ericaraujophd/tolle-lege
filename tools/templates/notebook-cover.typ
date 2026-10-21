@@ -8,9 +8,9 @@
 // cover. Like the book cover, it is four pages on one sheet, imposed by
 // tools/impose.py:
 //
-//   page 1  front           series name, silhouette art, title, paper boxes
+//   page 1  front           the silhouette, and the series name, tiny
 //   page 2  inside front    "This notebook belongs to"
-//   page 3  inside back     specifications, credits
+//   page 3  inside back     title, paper boxes, specifications, credits
 //   page 4  back            series name and website
 //
 // A notebook folder in notebooks/ has an art.svg (the silhouette, black on
@@ -23,8 +23,8 @@
 // Typst resolves a file path relative to the file that calls image(), which
 // would be this template, not the notebook folder.
 //
-// ONE COVER FOR EVERY PAPER. The front carries three small boxes, Dotted,
-// Lined and Blank: tick the one that matches the paper you sewed inside. So
+// ONE COVER FOR EVERY PAPER. The inside back carries three small boxes,
+// Dotted, Lined and Blank: tick the one that matches the paper you sewed inside. So
 // each design needs only one cover file, whatever paper you use.
 //
 // SILHOUETTES. The art is solid black shapes only (no greys, no fills of
@@ -44,37 +44,21 @@
 
   // A small square check box followed by a label, for the paper type.
   let box-label(label) = box[
-    #box(width: 6.5pt, height: 6.5pt, stroke: 0.6pt + black, baseline: 1pt)
-    #h(3pt)#text(size: 8pt, tracking: 0.08em)[#upper(label)]
+    #box(width: 6pt, height: 6pt, stroke: 0.5pt + black, baseline: 0.5pt)
+    #h(2.5pt)#upper(label)
   ]
-  // The double rule used on the book covers: heavy line outside, thin inside.
-  let rule-pair(heavy-first) = {
-    if heavy-first {
-      line(length: 100%, stroke: 1.4pt + accent); v(-0.55em)
-      line(length: 100%, stroke: 0.5pt + accent)
-    } else {
-      line(length: 100%, stroke: 0.5pt + accent); v(-0.55em)
-      line(length: 100%, stroke: 1.4pt + accent)
-    }
-  }
 
   // ------------------------------------------------------------ 1. FRONT
-  align(center)[
-    #text(size: 8.5pt, tracking: 0.18em, fill: accent)[#upper(series) #h(0.35em)·#h(0.35em) NOTEBOOK]
-    #v(0.1in)
-    #rule-pair(true)
-    #v(0.06in)
-    // The silhouette is sized by HEIGHT so the front always fits on one
-    // page, whatever the drawing's proportions (a tall drawing at full width
-    // pushed the title onto a second page). Width follows the drawing.
-    #image(art, format: "svg", height: 2.55in)
-    #v(0.04in)
-    #rule-pair(false)
-    #v(0.1in)
-    #text(size: 18pt, style: "italic")[#meta.title]
-    #v(1fr)
-    #box-label("Dotted") #h(0.6em) #box-label("Lined") #h(0.6em) #box-label("Blank")
-  ]
+  // MINIMAL ON PURPOSE (Eric, 2026-10-20): no rules, no title, nothing but
+  // the small silhouette and, at the foot, the series name set tiny and
+  // grey. The art is sized by HEIGHT (1.75 in, about a third of the page)
+  // and sits a little above the middle, with empty paper all around it.
+  // The title and the paper boxes live on the inside back cover instead.
+  v(0.62in)
+  align(center, image(art, format: "svg", height: 1.75in))
+  v(1fr)
+  align(center, text(size: 6pt, tracking: 0.3em, fill: luma(80))[#upper(series)])
+  v(0.04in)
 
   // ----------------------------------------------------- 2. INSIDE FRONT
   pagebreak()
@@ -99,6 +83,12 @@
   // ------------------------------------------------------ 3. INSIDE BACK
   pagebreak()
   v(1fr)
+  align(center)[
+    #text(size: 13pt, style: "italic")[#meta.title] \
+    #v(0.1in)
+    #text(size: 7.5pt, tracking: 0.08em)[#box-label("Dotted") #h(0.7em) #box-label("Lined") #h(0.7em) #box-label("Blank")]
+  ]
+  v(0.3in)
   head[SPECIFICATIONS]
   v(0.05in)
   line(length: 100%, stroke: 0.4pt)
