@@ -55,7 +55,7 @@
   //   v(1fr)      pushes everything down to the foot of the page
   //   align(right + bottom, stack(...))  puts name and art in that corner,
   //   the name centred over the art (the stack is only as wide as the art).
-  // The art is sized by HEIGHT (1.75 in, about a third of the page).
+  // The art is sized by HEIGHT (1.35 in, about a quarter of the page).
   // The title and the paper boxes live on the inside back cover instead.
   v(1fr)
   // box(...) shrinks to the width of its widest child (the art), so
@@ -64,7 +64,7 @@
     // Tracking adds space after the last letter too; h(-0.3em) removes it
     // so the name is truly centred.
     align(center, text(size: 6pt, tracking: 0.3em, fill: luma(80))[#upper(series)#h(-0.3em)]),
-    image(art, format: "svg", height: 1.75in),
+    image(art, format: "svg", height: 1.35in),
   )))
 
   // ----------------------------------------------------- 2. INSIDE FRONT
