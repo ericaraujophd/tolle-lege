@@ -6,7 +6,7 @@ Run:  python3 notebooks/01-first-snow/draw_art.py   (writes art.svg beside it)
 
 THE DRAWING (version 8, 2026-10-20). An original silhouette of a little girl
 of about five, in profile facing right, face tipped up to the falling snow,
-one hand raised with the fingers open to catch a flake. Shoulder-length hair
+one hand raised in a mitten to catch a flake. Shoulder-length hair
 with a small bow, a coat-dress with a full bell skirt, short legs, small
 round shoes.
 
@@ -43,7 +43,7 @@ def spline(pts, t=0.5):
         d+=f"C{c1[0]:.2f} {c1[1]:.2f} {c2[0]:.2f} {c2[1]:.2f} {p2[0]:.2f} {p2[1]:.2f} "
     return d+"Z"
 def P(pts): parts.append(f'<path d="{spline(pts)}" fill="{INK}"/>')
-TILT, NAPE = -30, (101, 118)
+TILT, NAPE = -30, (102, 111)   # nape high enough that the neck shows
 def place(pts):
     a=math.radians(TILT); c,s=math.cos(a),math.sin(a)
     tf=lambda x,y:(x*c-y*s, x*s+y*c); nx,ny=tf(-9,20)
@@ -55,7 +55,8 @@ head=place([(-9,20),(-18,8),(-20,-6),(-14,-18),(-1,-23),(11,-20),(17.5,-11),(19.
 P(head)
 # neck, short
 th=head[-1]
-P([(NAPE[0]+2,NAPE[1]-2),(th[0],th[1]),(th[0]+2,th[1]+7),(116,130),(100,132),(98,126)])
+# NECK: slim, from nape and throat down into the collar of the dress
+P([(NAPE[0]+1,NAPE[1]-3),(th[0]-1,th[1]-1),(th[0]+0.5,th[1]+6),(112.5,124),(111,131),(102,131),(101.5,122)])
 # hair: cap over the back of the head (head coords) ...
 P(place([(13,-20.5),(0,-24.5),(-15,-19.5),(-21.5,-6),(-20,8),(-12,14),(-6,8),(-2,-6),(6,-12)]))
 # ... and loose hair falling with gravity to the shoulders, curling at the ends
@@ -74,9 +75,10 @@ P([(100,124),(95,132),(93,150),(91,166),(84,186),(78,204),(82,209),(100,212),(12
 # near arm: raised forward and up toward the snow, hand open, fingers spread
 P([(104,130),(112,128),(120,124),(127,116),(132,106),(135.5,96),(139,98.5),(136,110),
    (130,122),(122,132),(112,140),(104,140)])
-P([(133.5,98),(133,92),(131.5,86),(131,82.5),(133,82),(135,86.5),(135.4,80.5),(137,78.6),
-   (138.4,80.6),(138.4,85.6),(139.8,80.8),(141.4,80),(142,82),(140.8,87),(142.8,84),(144.4,84.4),
-   (143.8,87),(141.2,92.4),(143.6,92),(145,93.4),(142.6,96.6),(139,100)])
+# MITTEN on the raised hand (winter, and a clean shape at small size):
+# a rounded paddle for the fingers, a small thumb on the side toward her face
+P([(133.6,99),(132.4,92),(132.6,85),(135.4,80.2),(139.4,79.6),(142,83),(141.8,90),(140.2,96),(137.6,100.2)])
+P([(135,95),(133.6,91),(130.8,87.6),(129.2,88.6),(130,92.6),(132.6,97.4)])   # thumb, overlapping the mitten
 # legs: short and soft, slightly apart; small round shoes; ground y=258
 P([(97.5,206),(106.5,206),(106,222),(105.5,238),(105.5,247),(106.5,251),(103,252),(98.6,251.5),(98.4,240),(98,224)])
 P([(107.5,206),(116.5,206),(116,222),(115.4,237),(115.2,246),(114,251),(109,251.5),(108.4,240),(108,224)])
