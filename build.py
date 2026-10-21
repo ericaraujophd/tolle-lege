@@ -47,6 +47,12 @@ ready-printed, so the build makes only the cover: compiled, imposed (two
 copies per sheet, same marks as the books) into
 docs/notebooks/<slug>/<slug>-cover.pdf, plus a cover.png picture.
 
+AND FOR EACH COLLECTION IN collections/
+--------------------------------------
+A collection is a gift set of notebooks held by a paper band (collection.toml
+lists them). The build compiles its band.typ, four bands on one landscape
+letter sheet, into docs/collections/<slug>/<slug>-band.pdf.
+
 Then it writes the duplex alignment test and the website page
 (docs/index.html) from tools/site/index.template.html, with one card per
 title. GitHub Pages serves the docs/ folder as the website.
@@ -305,6 +311,17 @@ def main():
         out_dir = (ROOT / "build" / "notebooks" / meta["slug"]) if personal \
             else (DOCS / "notebooks" / meta["slug"])
         build_notebook(meta, out_dir, offset, thumbnail=not personal)
+
+    # The collection bands (single-sided: no back-side offset to correct).
+    if not personal and (ROOT / "collections").exists():
+        for folder in sorted(p for p in (ROOT / "collections").iterdir()
+                             if (p / "collection.toml").exists()):
+            slug = tomllib.loads((folder / "collection.toml").read_text("utf-8"))["slug"]
+            if a.only and slug != a.only:
+                continue
+            out = DOCS / "collections" / slug / f"{slug}-band.pdf"
+            compile_typst(folder / "band.typ", out)
+            print(f"\n== collection {slug}: band -> {out.relative_to(ROOT)}")
 
     if personal:
         print(f"\nPrinter-corrected files (back offset {offset} mm) are in build/.")

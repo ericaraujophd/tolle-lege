@@ -1,0 +1,11 @@
+# =========================================================================
+# collection.toml  --  a gift set of Tolle Lege notebooks, held by a band
+# =========================================================================
+# Read by band.typ (through tools/templates/collection-band.typ) and by
+# build.py, which writes docs/collections/<slug>/<slug>-band.pdf.
+
+slug = "fall-2026"
+name = "Fall 2026 Collection"
+# The notebooks in the set, in order (folder names in notebooks/). Their
+# numbers and accent colours are read from each notebook.toml.
+notebooks = ["01-first-snow", "02-apple-tree", "03-dragon-and-lion"]

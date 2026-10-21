@@ -159,6 +159,19 @@ per sheet, same marks as the books).
 | Notebook 02 | *Apple Tree*: a boy picks an apple as a winged horse flies by (green) | available |
 | Notebook 03 | *Dragon and Lion*: a dragon lies beside a standing lion (burgundy) | available |
 
+## Collections
+
+A collection is a set of notebooks given together, stacked and wrapped with a
+paper band closed at the back with a wax seal. `python3 build.py` writes
+`docs/collections/<slug>/<slug>-band.pdf`: four 9 × 1.5 in bands per letter
+sheet (landscape, single-sided). The front of the band shows the series, the
+collection name and the notebook numbers in their own colours; fold at the
+small ticks, overlap the ends at the back, seal.
+
+| Collection | Notebooks |
+|---|---|
+| Fall 2026 Collection | 01 First Snow, 02 Apple Tree, 03 Dragon and Lion |
+
 ## License
 
 - **The texts** are in the public domain.
