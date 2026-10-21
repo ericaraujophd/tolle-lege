@@ -1,0 +1,18 @@
+# =========================================================================
+# notebook.toml  --  one notebook design in the Tolle Lege notebook collection
+# =========================================================================
+# Read by cover.typ (through tools/templates/notebook-cover.typ) and by the
+# top-level build.py (file names and the website).
+
+status = "available"
+slug = "03-dragon-and-lion"
+number = "Notebook 03"
+num = "03"                  # printed as "No. 03" above the specifications
+title = "Dragon and Lion"
+summary = "A dragon lies in the grass beside a standing lion."
+designer = "Eric Araújo"
+# Optional spec-sheet line under "Cover art": how the illustration was made.
+art_tool = "Made with Google Gemini"
+pages = 48
+accent = "#6e1f2e"          # deep burgundy (placeholder, 2026-10-21)
+cover_paper = "65 lb cardstock"

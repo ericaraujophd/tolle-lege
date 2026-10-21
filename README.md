@@ -157,6 +157,7 @@ per sheet, same marks as the books).
 |---|---|---|
 | Notebook 01 | *First Snow*: a girl looks up at the snow under a street lamp (navy) | available |
 | Notebook 02 | *Apple Tree*: a boy picks an apple as a winged horse flies by (green) | available |
+| Notebook 03 | *Dragon and Lion*: a dragon lies beside a standing lion (burgundy) | available |
 
 ## License
 
