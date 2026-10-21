@@ -27,6 +27,7 @@ tolle-lege/
 ├── build.py                 ONE command: builds every title and the website
 ├── requirements.txt
 ├── tools/                   shared by every title
+│   ├── trace_art.py         notebook picture (source/) -> art.svg, traced to vector
 │   ├── impose.py            pages -> printable letter sheets (saddle-stitch order,
 │   │                        2 copies per sheet, cut line, corner crosses)
 │   ├── templates/
@@ -154,7 +155,8 @@ per sheet, same marks as the books).
 
 | No. | Cover | Status |
 |---|---|---|
-| Notebook 01 | *First Snow*: a girl looks up as the snow falls | available |
+| Notebook 01 | *First Snow*: a girl looks up at the snow under a street lamp (navy) | available |
+| Notebook 02 | *Apple Tree*: a boy picks an apple as a winged horse flies by (green) | available |
 
 ## License
 

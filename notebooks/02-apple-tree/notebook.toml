@@ -1,0 +1,18 @@
+# =========================================================================
+# notebook.toml  --  one notebook design in the Tolle Lege notebook collection
+# =========================================================================
+# Read by cover.typ (through tools/templates/notebook-cover.typ) and by the
+# top-level build.py (file names and the website).
+
+status = "available"
+slug = "02-apple-tree"
+number = "Notebook 02"
+num = "02"                  # printed as "No. 02" above the specifications
+title = "Apple Tree"
+summary = "A boy picks an apple while a winged horse flies overhead."
+designer = "Eric Araújo"
+# Optional spec-sheet line under "Cover art": how the illustration was made.
+art_tool = "Made with Google Gemini"
+pages = 48
+accent = "#2d5a3a"          # dark green (Eric, 2026-10-21)
+cover_paper = "65 lb cardstock"
