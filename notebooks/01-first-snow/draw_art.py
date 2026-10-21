@@ -6,9 +6,9 @@ Run:  python3 notebooks/01-first-snow/draw_art.py   (writes art.svg beside it)
 
 THE DRAWING (version 5, 2026-10-20). A girl of about nine or ten, in true
 profile facing right, her head tipped back to look up at the falling snow.
-Long hair hangs straight down her back; she wears a knee-length coat, tights
-and ankle boots, arms relaxed at her sides. Realistic proportions (about six
-heads tall) and a real facial profile: brow, small nose, lips, chin, throat.
+Her hair is tied in a high ponytail; she wears a knee-length coat, tights
+and ankle boots, arms relaxed at her sides. Realistic proportions (about seven
+heads tall, head scaled by HEAD_SCALE) and a real facial profile: brow, small nose, lips, chin, throat.
 (Earlier versions were geometric or cartoon figures; Eric asked for the
 silhouette of a real girl.)
 
@@ -54,13 +54,21 @@ head=[(100,92),(92.6,87.2),(82.9,74.8),(80.4,59.0),(87.7,45.9),(100.8,41.2),  # 
       (131.0,66.1),(130.9,68.2),(132.9,69.6),                                  # lips
       (133.0,72.6),(135.4,75.6),(132.6,79.4),                                  # chin
       (124,86.5),(116.5,94),(112,102)]                                         # throat
-P(spline(head))
-# HAIR: from the crown it hugs the back of the head, then falls with
-# gravity in a soft curtain to the shoulder blades
-P(spline([(106.5,42),(91,42.4),(80.2,51.6),(77.2,64),(78.4,80),(80.8,96),(82.6,112),
-          (84.4,124.5),(89,127.5),(94.6,122),(97.6,108),(99,94),(100,78),(104,58)]))
+# The head and hair are drawn at the size above, then SCALED DOWN about the
+# throat (see the <g transform> below): 0.8 gives a child of about seven
+# heads tall, which reads slimmer and gentler than a big head.
+HEAD_SCALE = 0.8
+head_parts = [spline(head)]
+# HAIR: a smooth cap over the back of the head, and a ponytail tied high
+# at the back that swings down to the shoulders
+head_parts.append(spline([(106.5,42),(91,42.4),(80.2,51.6),(77.2,64),(79,77),(86,85),
+                          (97,76),(103,58)]))
+head_parts.append(spline([(83,50),(75.5,54),(71,64),(70.5,78),(72.5,93),(75.5,103),
+                          (78.5,106),(79.5,99),(78.6,86),(79.4,72),(82.5,61)]))
+parts.append(f'<g transform="translate(112 102) scale({HEAD_SCALE}) translate(-112 -102)">'
+             + "".join(f'<path d="{d}" fill="{INK}"/>' for d in head_parts) + "</g>")
 # NECK
-P(spline([(98,88),(110,99),(112.5,104),(112,113),(99,114),(96,100)]))
+P(spline([(102,92),(109,99),(111.5,104),(111,113),(101,114),(100.5,103)]))   # slim, short
 # COAT (profile): soft shoulder, straight back, gentle flare to the knee
 coat=[(98,104),(92,110),(89,124),(89.5,145),(88,170),(85,198),(85.5,211),(104,214.5),(123,211.5),
       (124.5,206),(120.5,184),(117,163),(119,147),(119.5,131),(116.5,116),(110,107)]
