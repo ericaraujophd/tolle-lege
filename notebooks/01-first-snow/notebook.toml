@@ -7,6 +7,7 @@
 status = "available"
 slug = "01-first-snow"
 number = "Notebook 01"
+num = "01"                  # printed as "No. 01" above the specifications
 title = "First Snow"
 summary = "A girl looks up as the first snow of the year falls around her."
 designer = "Eric Araújo"

@@ -114,6 +114,18 @@
   // ------------------------------------------------------ 3. INSIDE BACK
   pagebreak()
   v(1fr)
+  // The notebook's number in the collection, set like a small title above
+  // the spec sheet: "NOTEBOOK" in letter-spaced capitals, then "No. 01"
+  // large and in italics, both in the accent colour. From `num` in
+  // notebook.toml.
+  if "num" in meta {
+    align(center)[
+      #text(size: 7pt, tracking: 0.3em, fill: accent)[NOTEBOOK#h(-0.3em)] \
+      #v(2pt)
+      #text(size: 20pt, style: "italic", fill: accent)[No. #meta.num]
+    ]
+    v(0.3in)
+  }
   head[SPECIFICATIONS]
   v(0.05in)
   line(length: 100%, stroke: 0.4pt)
