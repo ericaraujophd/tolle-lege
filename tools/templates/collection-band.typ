@@ -7,17 +7,22 @@
 // wax seal. This template prints FOUR bands on one US Letter sheet, turned
 // sideways (landscape), single-sided.
 //
-// THE BAND, laid flat (9 x 1.5 in), left to right:
+// THE BAND, laid flat (9.75 x 1.5 in), left to right:
 //
 //   |  back (left end)  | side |    FRONT, 3.5 in    | side |  back (right end)  |
-//   0               2.35   2.75                 6.25   6.65                  9 in
+//   0              2.725  3.125                6.625  7.025              9.75 in
 //
+// The fold positions are COMPUTED from BW (band length) and SIDE (stack
+// thickness), with the front always centred, so changing either number
+// keeps everything consistent.
 //   * FRONT is centred, the width of a notebook (3.5 in). It carries the
 //     series name, the collection name and the notebook numbers, each number
 //     in that notebook's own colour.
 //   * SIDES are 0.4 in: the thickness of three stacked notebooks, about 10 mm.
-//   * The two BACK ends add up to 4.7 in: the 3.5 in back plus 1.2 in of
-//     overlap, where the wax seal goes. They are left blank.
+//   * The two BACK ends add up to 5.45 in: the 3.5 in back plus almost 2 in
+//     of overlap, where the wax seal goes. The generous overlap is ROOM TO
+//     SPARE (Eric, 2026-10-21): a thicker stack just uses up some of it.
+//     They are left blank.
 //
 // Wrap: centre the front on the stack, fold at the four small grey ticks
 // (printed just outside the band, above and below), bring both ends round
@@ -32,13 +37,15 @@
 #let series = "Tolle Lege"
 
 #let collection-band(meta, books) = {
-  let BW = 9in             // band length
+  let BW = 9.75in          // band length (9 in fits exactly; 0.75 in to spare)
   let BH = 1.5in           // band height
   let N = 4                // bands per sheet
   let X0 = (11in - BW) / 2           // left edge of the bands on the sheet
   let Y0 = (8.5in - N * BH) / 2      // top edge of the first band
   let mark = 0.5pt + luma(140)
-  let folds = (2.35in, 2.75in, 6.25in, 6.65in)
+  let SIDE = 0.4in         // thickness of the stacked notebooks
+  let F = (BW - 3.5in) / 2           // where the front panel starts
+  let folds = (F - SIDE, F, F + 3.5in, F + 3.5in + SIDE)
 
   set page(width: 11in, height: 8.5in, margin: 0in)
   set text(font: "Libertinus Serif", fill: black)
@@ -66,7 +73,7 @@
 
   // ---- the bands ----------------------------------------------------------
   for i in range(N) {
-    place(dx: X0 + 2.75in, dy: Y0 + i * BH, front)
+    place(dx: X0 + F, dy: Y0 + i * BH, front)
   }
 
   // ---- cut marks: in the margins only ------------------------------------
