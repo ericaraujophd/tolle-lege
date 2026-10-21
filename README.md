@@ -140,6 +140,21 @@ Per 25 copies: 13 print runs.
 be in the public domain in the United States. Works first published in 1930 or
 earlier are; later translations usually are not.
 
+## The notebooks
+
+Pocket notebooks at the same 3.5 × 5 in size, with a silhouette cover. Only the
+cover is designed here; for the inside, buy letter-size dotted, lined or blank
+paper, cut it in half and fold (lined paper: lines running across the sheet's
+short side, so they stay horizontal on the page). The front has three boxes,
+Dotted, Lined, Blank: tick the one you sewed inside, so one cover fits all.
+
+`python3 build.py` writes `docs/notebooks/<slug>/<slug>-cover.pdf` (two covers
+per sheet, same marks as the books).
+
+| No. | Cover | Status |
+|---|---|---|
+| Notebook 01 | *First Snow*: a girl looks up as the snow falls | available |
+
 ## License
 
 - **The texts** are in the public domain.

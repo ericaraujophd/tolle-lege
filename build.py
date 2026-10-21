@@ -39,6 +39,14 @@ A title is a folder in titles/ with a title.toml. If its status is
 
 Titles with status "in-preparation" only get a card on the website.
 
+AND FOR EACH NOTEBOOK IN notebooks/
+-----------------------------------
+A notebook is a folder in notebooks/ with a notebook.toml, an art.svg (the
+silhouette) and a two-line cover.typ. Its inside pages are bought
+ready-printed, so the build makes only the cover: compiled, imposed (two
+copies per sheet, same marks as the books) into
+docs/notebooks/<slug>/<slug>-cover.pdf, plus a cover.png picture.
+
 Then it writes the duplex alignment test and the website page
 (docs/index.html) from tools/site/index.template.html, with one card per
 title. GitHub Pages serves the docs/ folder as the website.
@@ -65,6 +73,7 @@ from pypdf import PdfReader
 
 ROOT = Path(__file__).resolve().parent
 TITLES = ROOT / "titles"
+NOTEBOOKS = ROOT / "notebooks"
 DOCS = ROOT / "docs"
 SITE_TEMPLATES = ROOT / "tools" / "site"
 
@@ -172,6 +181,42 @@ def build_title(meta, out_dir: Path, offset_mm, extract: bool, thumbnail: bool):
     }
 
 
+# ---------------------------------------------------------- one notebook
+def load_notebooks():
+    """All notebooks, sorted by folder name (which starts with the number)."""
+    out = []
+    if NOTEBOOKS.exists():
+        for folder in sorted(p for p in NOTEBOOKS.iterdir() if (p / "notebook.toml").exists()):
+            meta = tomllib.loads((folder / "notebook.toml").read_text(encoding="utf-8"))
+            meta["folder"] = folder
+            out.append(meta)
+    return out
+
+
+def build_notebook(meta, out_dir: Path, offset_mm, thumbnail: bool):
+    """Build one notebook COVER into out_dir (the inside pages are bought, so
+    there is no interior). Returns the path of the imposed cover PDF."""
+    folder, slug = meta["folder"], meta["slug"]
+    print(f"\n== {meta['number']}  {meta['title']}  ({slug})")
+    pages = out_dir / f"{slug}-cover-pages.pdf"            # temporary
+    cover = out_dir / f"{slug}-cover.pdf"
+    compile_typst(folder / "cover.typ", pages)
+    if page_count(pages) != 4:
+        # A front that overflows (art too tall, say) would shift every page.
+        sys.exit(f"{slug}: the notebook cover must be exactly 4 pages")
+    impose.impose(str(pages), str(cover), f"{meta['number']} cover", offset_mm)
+    pages.unlink()
+    if thumbnail:                                # page 1 only, as for the books
+        compile_typst(folder / "cover.typ", out_dir / "cover-{p}.png")
+        for png in out_dir.glob("cover-*.png"):
+            if png.name == "cover-1.png":
+                png.replace(out_dir / "cover.png")
+            else:
+                png.unlink()
+    print(f"   cover: {cover.relative_to(ROOT)}")
+    return cover
+
+
 # ---------------------------------------------------------------- website
 def esc(s) -> str:
     return html.escape(str(s), quote=True)
@@ -250,6 +295,16 @@ def main():
         out_dir = (ROOT / "build" / meta["slug"]) if personal else (DOCS / "books" / meta["slug"])
         facts = build_title(meta, out_dir, offset, a.extract, thumbnail=not personal)
         cards.append(card_html(meta, facts))
+
+    # The notebooks (covers only). --only also matches a notebook slug.
+    for meta in load_notebooks():
+        if a.only and meta["slug"] != a.only:
+            continue
+        if meta.get("status") != "available":
+            continue
+        out_dir = (ROOT / "build" / "notebooks" / meta["slug"]) if personal \
+            else (DOCS / "notebooks" / meta["slug"])
+        build_notebook(meta, out_dir, offset, thumbnail=not personal)
 
     if personal:
         print(f"\nPrinter-corrected files (back offset {offset} mm) are in build/.")
