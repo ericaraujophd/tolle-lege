@@ -7,16 +7,16 @@ Run:  python3 notebooks/01-first-snow/trace_art.py
 Needs: pip install pillow numpy potracer   (potracer = pure-Python potrace)
 
 WHERE THE PICTURE COMES FROM
-  source/girl-gemini.png is a black-and-white illustration Eric made with
-  Google Gemini (2026-10-20): a girl in a winter coat and pompom hat looking
-  up into falling snow, with trees and a street lamp around her. The cover
-  is minimal, so this script keeps ONLY the girl and the snow right around
-  her (the crop box below); the trees and the lamp are left out.
+  source/first-snow-gemini.png is a black-and-white illustration Eric made
+  with Google Gemini (2026-10-20): a girl in a winter coat and pompom hat
+  looking up into snow falling through the light of a street lamp. Eric
+  asked for it to be used AS IT IS, so the whole picture is traced, with no
+  crop and nothing removed (CROP = None, ERASE empty). To use part of a
+  picture instead, set CROP to a box and list areas to paint out in ERASE.
 
 WHAT THE SCRIPT DOES, STEP BY STEP
-  1. Crop the girl and nearby snow out of the source (CROP, in pixels).
-  2. Paint out anything in the crop that is not girl or snow: a twig of the
-     tree pokes into the top-left corner (ERASE boxes, in crop pixels).
+  1. Optionally crop the source (CROP, in pixels; None keeps it whole).
+  2. Optionally paint out areas (ERASE boxes, in pixels; empty here).
   3. Enlarge 4x with smooth resampling. Tracing a bigger, smoother image
      gives smoother curves than tracing the small original's jagged pixels.
   4. Threshold: every pixel darker than mid-grey becomes ink.
@@ -37,11 +37,11 @@ import potrace
 from PIL import Image, ImageDraw
 
 HERE = Path(__file__).resolve().parent
-SOURCE = HERE / "source" / "girl-gemini.png"
+SOURCE = HERE / "source" / "first-snow-gemini.png"
 OUT = HERE / "art.svg"
 
-CROP = (140, 370, 385, 990)        # left, top, right, bottom in the source
-ERASE = [(0, 0, 44, 52), (0, 95, 16, 128)]   # tree twigs, in crop coordinates
+CROP = None                        # None = the WHOLE picture, unchanged (Eric, 2026-10-20)
+ERASE = []                         # nothing painted out
 SCALE = 4                          # enlarge before tracing
 THRESHOLD = 128                    # 0 black .. 255 white; darker = ink
 TURDSIZE = 6 * SCALE * SCALE       # ignore specks smaller than this (pixels)
@@ -50,7 +50,9 @@ INK = "#1a1a1a"
 
 
 def main():
-    img = Image.open(SOURCE).convert("L").crop(CROP)
+    img = Image.open(SOURCE).convert("L")
+    if CROP:
+        img = img.crop(CROP)
     draw = ImageDraw.Draw(img)
     for box in ERASE:
         draw.rectangle(box, fill=255)
