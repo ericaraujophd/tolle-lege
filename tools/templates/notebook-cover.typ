@@ -49,16 +49,23 @@
   ]
 
   // ------------------------------------------------------------ 1. FRONT
-  // MINIMAL ON PURPOSE (Eric, 2026-10-20): no rules, no title, nothing but
-  // the small silhouette and, at the foot, the series name set tiny and
-  // grey. The art is sized by HEIGHT (1.75 in, about a third of the page)
-  // and sits a little above the middle, with empty paper all around it.
+  // MINIMAL ON PURPOSE (Eric, 2026-10-20): no rules, no title. The page is
+  // empty except for the BOTTOM-RIGHT corner, where the small silhouette
+  // sits with the series name, tiny and grey, just above it.
+  //   v(1fr)      pushes everything down to the foot of the page
+  //   align(right + bottom, stack(...))  puts name and art in that corner,
+  //   the name centred over the art (the stack is only as wide as the art).
+  // The art is sized by HEIGHT (1.75 in, about a third of the page).
   // The title and the paper boxes live on the inside back cover instead.
-  v(0.62in)
-  align(center, image(art, format: "svg", height: 1.75in))
   v(1fr)
-  align(center, text(size: 6pt, tracking: 0.3em, fill: luma(80))[#upper(series)])
-  v(0.04in)
+  // box(...) shrinks to the width of its widest child (the art), so
+  // "center" inside the stack means centred over the art, not the page.
+  align(right, box(stack(dir: ttb, spacing: 0.1in,
+    // Tracking adds space after the last letter too; h(-0.3em) removes it
+    // so the name is truly centred.
+    align(center, text(size: 6pt, tracking: 0.3em, fill: luma(80))[#upper(series)#h(-0.3em)]),
+    image(art, format: "svg", height: 1.75in),
+  )))
 
   // ----------------------------------------------------- 2. INSIDE FRONT
   pagebreak()
