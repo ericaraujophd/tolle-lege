@@ -10,6 +10,8 @@ number = "Notebook 01"
 title = "First Snow"
 summary = "A girl looks up as the first snow of the year falls around her."
 designer = "Eric Araújo"
+# Optional spec-sheet line under "Cover art": how the illustration was made.
+art_tool = "Made with Google Gemini"
 pages = 48
 accent = "#9e1b1f"          # deep red, as on the books
 cover_paper = "65 lb cardstock"

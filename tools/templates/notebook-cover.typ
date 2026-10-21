@@ -9,7 +9,7 @@
 // tools/impose.py:
 //
 //   page 1  front           the silhouette, and the series name, tiny
-//   page 2  inside front    "This notebook belongs to"
+//   page 2  inside front    belongs to, if found please contact, started / finished
 //   page 3  inside back     title, paper boxes, specifications, credits
 //   page 4  back            series name and website
 //
@@ -68,24 +68,53 @@
   )))
 
   // ----------------------------------------------------- 2. INSIDE FRONT
+  // The owner's page (redesigned 2026-10-20). A small series mark, then
+  // three blocks a fixed `gap` apart, the whole group centred on the page
+  // (v(1fr) above and below):
+  //   This notebook belongs to   one writing line
+  //   If found, please contact   two writing lines (name; phone or email)
+  //   Started / Finished         two rows, each a date to fill in as
+  //                              MM / DD / YYYY, with the small guide
+  //                              letters printed under each blank
+  // Labels are small letter-spaced capitals in the accent colour; writing
+  // lines are thin and grey so handwriting, not print, is what stands out.
   pagebreak()
-  let head(label) = text(size: 9pt, tracking: 0.12em, fill: accent, label)
-  let write-lines(n) = for i in range(n) {
-    line(length: 100%, stroke: 0.4pt)
-    v(0.27in)
-  }
-  v(0.2in)
-  head[THIS NOTEBOOK BELONGS TO]
-  v(0.12in)
-  write-lines(2)
-  v(0.12in)
-  head[IF FOUND, PLEASE RETURN TO]
-  v(0.12in)
-  write-lines(2)
-  v(0.12in)
-  head[STARTED  /  FINISHED]
-  v(0.12in)
-  line(length: 100%, stroke: 0.4pt)
+  let label(t) = text(size: 7pt, tracking: 0.16em, fill: accent, upper(t))
+  let rule-grey = 0.5pt + luma(150)
+  // Heading style for the inside back (spec sheet).
+  let head(t) = text(size: 9pt, tracking: 0.12em, fill: accent, t)
+  // A writing line with room above it for handwriting (0.3 in).
+  let write-line() = { v(0.3in); line(length: 100%, stroke: rule-grey) }
+  // A date row, as a grid so everything lines up:
+  //   row 1:  STARTED   ______ / ______ / __________
+  //   row 2:             MM       DD       YYYY       (tiny grey guides)
+  // Each blank is a box whose line sits at its BOTTOM, and row 1 is
+  // bottom-aligned, so the lines rest on the same baseline as the label.
+  let blank = box(width: 100%, height: 9pt, align(bottom, line(length: 100%, stroke: rule-grey)))
+  let guide(t) = align(center, text(size: 5pt, tracking: 0.12em, fill: luma(120), t))
+  let slash = align(center + bottom, text(size: 9pt, fill: luma(150))[/])
+  let date-row(name) = grid(
+    columns: (1fr, 0.36in, 0.15in, 0.36in, 0.15in, 0.58in),
+    row-gutter: 3pt, align: bottom,
+    label(name), blank, slash, blank, slash, blank,
+    [], guide[MM], [], guide[DD], [], guide[YYYY],
+  )
+  let gap = 0.42in        // the space between the blocks
+
+  v(1fr)
+  align(center, text(size: 6pt, tracking: 0.3em, fill: luma(110))[#upper(series) #h(0.2em)·#h(0.2em) NOTEBOOK#h(-0.3em)])
+  v(gap)
+  label("This notebook belongs to")
+  write-line()
+  v(gap)
+  label("If found, please contact")
+  write-line()
+  write-line()
+  v(gap)
+  date-row("Started")
+  v(0.22in)
+  date-row("Finished")
+  v(1fr)
 
   // ------------------------------------------------------ 3. INSIDE BACK
   pagebreak()
@@ -107,6 +136,8 @@
       [Paper], [#meta.at("text_paper", default: "100 g/m², dotted, lined or blank")],
       [Cover], [#meta.at("cover_paper", default: "65 lb cardstock")],
       [Cover art], [#emph(meta.title), #meta.at("designer", default: "Eric Araújo")],
+      // Optional extra line, e.g. how the illustration was made.
+      ..if "art_tool" in meta { ([Illustration], [#meta.art_tool]) } else { () },
       [Corners], [Rounded, 1/4 in],
       [Made], [By hand, one at a time],
     )
