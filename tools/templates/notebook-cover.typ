@@ -10,7 +10,7 @@
 //
 //   page 1  front           the silhouette, and the series name, tiny
 //   page 2  inside front    belongs to, if found please contact, started / finished
-//   page 3  inside back     title, paper boxes, specifications, credits
+//   page 3  inside back     specifications and credits
 //   page 4  back            series name and website
 //
 // A notebook folder in notebooks/ has an art.svg (the silhouette, black on
@@ -23,9 +23,11 @@
 // Typst resolves a file path relative to the file that calls image(), which
 // would be this template, not the notebook folder.
 //
-// ONE COVER FOR EVERY PAPER. The inside back carries three small boxes,
-// Dotted, Lined and Blank: tick the one that matches the paper you sewed inside. So
-// each design needs only one cover file, whatever paper you use.
+// ONE COVER FOR EVERY PAPER. Nothing on the cover names the paper inside
+// (dotted, lined or blank), so each design needs only one cover file.
+//
+// COLOUR. `accent` in notebook.toml sets the colour of the labels and the
+// spec-sheet heading (First Snow: dark navy blue, #1f3a68).
 //
 // SILHOUETTES. The art is solid black shapes only (no greys, no fills of
 // colour), which prints crisply on kraft or stone cardstock with any printer.
@@ -42,12 +44,6 @@
   set text(font: "Libertinus Serif", size: 8pt, fill: black)
   set par(justify: false)
 
-  // A small square check box followed by a label, for the paper type.
-  let box-label(label) = box[
-    #box(width: 6pt, height: 6pt, stroke: 0.5pt + black, baseline: 0.5pt)
-    #h(2.5pt)#upper(label)
-  ]
-
   // ------------------------------------------------------------ 1. FRONT
   // MINIMAL ON PURPOSE (Eric, 2026-10-20): no rules, no title. The page is
   // empty except for the BOTTOM-RIGHT corner, where the small silhouette
@@ -56,7 +52,6 @@
   //   align(right + bottom, stack(...))  puts name and art in that corner,
   //   the name centred over the art (the stack is only as wide as the art).
   // The art is sized by HEIGHT (1.35 in, about a quarter of the page).
-  // The title and the paper boxes live on the inside back cover instead.
   v(1fr)
   // box(...) shrinks to the width of its widest child (the art), so
   // "center" inside the stack means centred over the art, not the page.
@@ -119,12 +114,6 @@
   // ------------------------------------------------------ 3. INSIDE BACK
   pagebreak()
   v(1fr)
-  align(center)[
-    #text(size: 13pt, style: "italic")[#meta.title] \
-    #v(0.1in)
-    #text(size: 7.5pt, tracking: 0.08em)[#box-label("Dotted") #h(0.7em) #box-label("Lined") #h(0.7em) #box-label("Blank")]
-  ]
-  v(0.3in)
   head[SPECIFICATIONS]
   v(0.05in)
   line(length: 100%, stroke: 0.4pt)
@@ -133,9 +122,9 @@
     grid(columns: (1fr, 1.6fr), row-gutter: 0.75em,
       [Size], [3.5 × 5 in],
       [Pages], [#pages, sewn through the fold],
-      [Paper], [#meta.at("text_paper", default: "100 g/m², dotted, lined or blank")],
+      [Paper], [#meta.at("text_paper", default: "100 g/m²")],
       [Cover], [#meta.at("cover_paper", default: "65 lb cardstock")],
-      [Cover art], [#emph(meta.title), #meta.at("designer", default: "Eric Araújo")],
+      [Cover art], [#meta.at("designer", default: "Eric Araújo")],
       // Optional extra line, e.g. how the illustration was made.
       ..if "art_tool" in meta { ([Illustration], [#meta.art_tool]) } else { () },
       [Corners], [Rounded, 1/4 in],
