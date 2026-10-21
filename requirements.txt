@@ -4,3 +4,4 @@ pypdf>=4.0         # imposition: placing pages on letter sheets
 reportlab>=4.0     # imposition: drawing the cut line, crosses and labels
 # Only for `python3 build.py --extract` (regenerating a title's content.typ):
 beautifulsoup4>=4.12
+potracer>=0.0.4      # notebooks: trace_art.py (bitmap -> vector silhouette)
