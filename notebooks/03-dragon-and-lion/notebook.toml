@@ -14,5 +14,5 @@ designer = "Eric Araújo"
 # Optional spec-sheet line under "Cover art": how the illustration was made.
 art_tool = "Made with Google Gemini"
 pages = 48
-accent = "#6e1f2e"          # deep burgundy (placeholder, 2026-10-21)
+accent = "#a83246"          # brighter burgundy; #6e1f2e printed too dark (2026-10-24)
 cover_paper = "65 lb cardstock"
