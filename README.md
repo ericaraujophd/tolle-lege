@@ -156,8 +156,8 @@ per sheet, same marks as the books).
 | No. | Cover | Status |
 |---|---|---|
 | Notebook 01 | *First Snow*: a girl looks up at the snow under a street lamp (blue #2a6db5) | available |
-| Notebook 02 | *Apple Tree*: a boy picks an apple as a winged horse flies by (green #3a8a4f) | available |
-| Notebook 03 | *Dragon and Lion*: a dragon lies beside a standing lion (burgundy #a83246) | available |
+| Notebook 02 | *Apple Tree*: a boy picks an apple as a winged horse flies by (burgundy #a83246) | available |
+| Notebook 03 | *Dragon and Lion*: a dragon lies beside a standing lion (green #3a8a4f) | available |
 
 ## Collections
 
