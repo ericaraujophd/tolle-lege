@@ -27,7 +27,11 @@
 // (dotted, lined or blank), so each design needs only one cover file.
 //
 // COLOUR. `accent` in notebook.toml sets the colour of the labels and the
-// spec-sheet heading (First Snow: dark navy blue, #1f3a68).
+// spec-sheet heading. All coloured text is SEMIBOLD (2026-10-24): inkjet ink
+// is thin, and fine strokes in a dark colour print almost black; heavier
+// strokes lay down more ink, so the colour actually shows. For the same
+// reason accents should be mid-tones, not near-black (First Snow moved from
+// navy #1f3a68 to a brighter blue #2a6db5).
 //
 // SILHOUETTES. The art is solid black shapes only (no greys, no fills of
 // colour), which prints crisply on kraft or stone cardstock with any printer.
@@ -74,10 +78,10 @@
   // Labels are small letter-spaced capitals in the accent colour; writing
   // lines are thin and grey so handwriting, not print, is what stands out.
   pagebreak()
-  let label(t) = text(size: 7pt, tracking: 0.16em, fill: accent, upper(t))
+  let label(t) = text(size: 7pt, tracking: 0.16em, fill: accent, weight: "semibold", upper(t))
   let rule-grey = 0.5pt + luma(150)
   // Heading style for the inside back (spec sheet).
-  let head(t) = text(size: 9pt, tracking: 0.12em, fill: accent, t)
+  let head(t) = text(size: 9pt, tracking: 0.12em, fill: accent, weight: "semibold", t)
   // A writing line with room above it for handwriting (0.3 in).
   let write-line() = { v(0.3in); line(length: 100%, stroke: rule-grey) }
   // A date row, as a grid so everything lines up:
@@ -120,9 +124,9 @@
   // notebook.toml.
   if "num" in meta {
     align(center)[
-      #text(size: 7pt, tracking: 0.3em, fill: accent)[NOTEBOOK#h(-0.3em)] \
+      #text(size: 7pt, tracking: 0.3em, fill: accent, weight: "semibold")[NOTEBOOK#h(-0.3em)] \
       #v(2pt)
-      #text(size: 20pt, style: "italic", fill: accent)[No. #meta.num]
+      #text(size: 20pt, style: "italic", fill: accent, weight: "semibold")[No. #meta.num]
     ]
     v(0.3in)
   }
@@ -149,7 +153,7 @@
   pagebreak()
   v(1fr)
   align(center)[
-    #text(size: 9pt, tracking: 0.18em, fill: accent)[#upper(series)] \
+    #text(size: 9pt, tracking: 0.18em, fill: accent, weight: "semibold")[#upper(series)] \
     #v(1pt)
     #text(size: 7.5pt, style: "italic")[Take up and write.] \
     #v(4pt)
