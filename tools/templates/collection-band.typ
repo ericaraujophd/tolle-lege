@@ -36,7 +36,18 @@
 
 #let series = "Tolle Lege"
 
-#let collection-band(meta, books) = {
+// PERSONAL TITLES. `titles` (optional) is a list of up to four titles, one per
+// band, top to bottom; a missing or empty entry falls back to the
+// collection name. band.typ fills it from the build input "titles", a list
+// separated by "|", so a one-off gift sheet needs no file edits:
+//
+//   typst compile --root . --input 'titles=Happy Birthday Elizabeth' \
+//       collections/fall-2026/band.typ gift-band.pdf
+//
+// gives Elizabeth's band on top and the normal title on the other three.
+// Personal sheets are made on demand and NOT committed (the repository is
+// public).
+#let collection-band(meta, books, titles: ()) = {
   let BW = 9.75in          // band length (9 in fits exactly; 0.75 in to spare)
   let BH = 1.5in           // band height
   let N = 4                // bands per sheet
@@ -51,13 +62,13 @@
   set text(font: "Libertinus Serif", fill: black)
 
   // ---- what is printed on the FRONT panel of one band -------------------
-  let front = {
+  let front(title) = {
     set align(center + horizon)
     set par(spacing: 0pt, leading: 0.5em)
     block(width: 3.5in, height: BH)[
       #text(size: 6.5pt, tracking: 0.3em, fill: luma(90))[#upper(series)#h(-0.3em)]
       #v(0.09in)
-      #text(size: 15pt, style: "italic")[#meta.name]
+      #text(size: 15pt, style: "italic")[#title]
       #v(0.1in)
       #text(size: 6.5pt, tracking: 0.25em, fill: luma(90))[NOTEBOOKS]
       #h(0.5em)
@@ -73,7 +84,8 @@
 
   // ---- the bands ----------------------------------------------------------
   for i in range(N) {
-    place(dx: X0 + F, dy: Y0 + i * BH, front)
+    let t = titles.at(i, default: "")
+    place(dx: X0 + F, dy: Y0 + i * BH, front(if t == "" { meta.name } else { t }))
   }
 
   // ---- cut marks: in the margins only ------------------------------------
