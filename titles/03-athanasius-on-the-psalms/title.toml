@@ -1,0 +1,38 @@
+# =========================================================================
+# title.toml  --  everything that is specific to this title
+# =========================================================================
+# Read by book.typ and cover.typ (through the shared templates in tools/)
+# and by the top-level build.py (for file names and the website).
+# Text values are plain text; `blurb` may use Typst markup (_italic_).
+
+status = "available"
+slug = "03-athanasius-on-the-psalms"
+
+number = "No. 03"
+title = "On the Psalms"
+subtitle = "A Letter to Marcellinus"
+author = "Athanasius of Alexandria"
+source = "Epistula ad Marcellinum, Patrologia Graeca 27, cols. 11-46"
+translation = "A new translation from the Greek, made for Tolle Lege, 2026."
+rights = "The Greek text is in the public domain; this translation is released under CC BY 4.0."
+back_rights = "Public-domain text, new translation (CC BY 4.0). Free to copy and share."
+edition_note = "This is a new translation, made from the Greek text printed in Migne's Patrologia Graeca, vol. 27 (1857). Athanasius quotes the Psalms from the Greek Bible; the quotations are translated as he gives them. Psalm numbers follow English Bibles. In three places the printed Greek gives a psalm number that is plainly a copying slip (Ps. 105 for 15, Ps. 17 for 18, and one unreadable number in the list of psalms of praise); the intended psalm is given, and the unreadable number is left out. The section headings are the editor's."
+editor = "Eric Araújo"        # "Designed by", on page 2 and in the colophon
+date = "Fall 2026"
+
+# The themed collection this title belongs to (website, cover spec sheet).
+collection = "On Prayer"
+
+# Back cover
+quote = "“These words become a kind of mirror, in which he sees himself and the movements of his own soul.”"
+quote_ref = "Letter to Marcellinus"
+blurb = "A bishop writes to a friend recovering from illness who loves the Psalms. The Psalter, he says, holds the whole of Scripture in song, gives us words for every state of the soul, and teaches us to pray them as our own."
+
+# Optional cover settings (defaults in tools/templates/cover.typ)
+accent = "#3a8a4f"              # mid green (No. 01 red, No. 02 blue); mid-tones print in colour on the inkjet
+cover_paper = "65 lb stone cardstock"
+text_paper = "24 lb cream"
+cover_title_size = 28
+
+# Website only
+summary = "The oldest Christian guide to praying the Psalms: why this one book holds all of Scripture, why its words become our own, and which psalm to pray in every trouble and joy. A new translation from the Greek."

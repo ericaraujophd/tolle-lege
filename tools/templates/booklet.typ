@@ -134,6 +134,29 @@
   ]
 }
 
+// ------------------------------------------------- headings within a text
+// A small italic heading inside a continuous text, for titles that are one
+// long piece (a letter, a sermon) rather than numbered fragments. Used by
+// No. 03 (Athanasius). The headings are the editor's, to help the reader
+// find their way; they are not in the original.
+#let subhead(title) = {
+  v(0.7em)
+  // sticky: true keeps the heading with the paragraph that follows it.
+  // width: 100% so that align(center) centres on the page, not on the
+  // heading's own width.
+  block(width: 100%, breakable: false, sticky: true, below: 0.55em)[
+    #align(center, text(size: 9pt, style: "italic")[#title])
+  ]
+}
+
+// A quotation set off from the text (Athanasius quotes the Psalms at
+// length): indented on both sides and a little smaller. The quotation is
+// part of the author's text, not an editorial note.
+#let psalm(body) = {
+  block(inset: (left: 0.18in, right: 0.1in), above: 0.55em, below: 0.65em,
+    text(size: 8.4pt, body))
+}
+
 // ------------------------------------------------------------- title page
 #let title-page(meta) = align(center)[
   #v(0.35in)
@@ -162,7 +185,10 @@
     *#meta.title #meta.subtitle* \
     #meta.author, #meta.source.
 
-    #meta.translation The translation is in the public domain.
+    // `rights` (title.toml, optional) replaces the default sentence, for a
+    // title whose translation is not in the public domain (No. 03 is a new
+    // translation under CC BY).
+    #meta.translation #meta.at("rights", default: "The translation is in the public domain.")
 
     #meta.edition_note
 

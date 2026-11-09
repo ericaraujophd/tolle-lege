@@ -17,8 +17,16 @@ This README is for building the files yourself or adding a new title.
 |---|---|---|---|
 | 01 | *On Curiosity and Studiousness* | Thomas Aquinas | available |
 | 02 | *On Diversion*, from the *Pensées* | Blaise Pascal | available |
+| 03 | *On the Psalms: A Letter to Marcellinus* (collection *On Prayer*) | Athanasius of Alexandria | available |
 
-Always in the most recent translation that is in the public domain.
+Always in the most recent translation that is in the public domain. Where no
+public-domain English translation exists (No. 03), the booklet carries a new
+translation from the original, released under CC BY 4.0 like the editorial
+pages.
+
+**Themed collections.** A title may belong to a collection, set in its
+`title.toml` (`collection = "On Prayer"`); the website shows it on the card.
+*On Prayer* begins with No. 03.
 
 ## Repository layout
 

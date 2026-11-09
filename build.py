@@ -232,8 +232,12 @@ def card_html(meta, facts) -> str:
     """One book card for the website. Available titles get a cover picture
     and download buttons; titles in preparation get a placeholder."""
     slug = meta["slug"]
+    # A title may belong to a themed collection (title.toml: collection),
+    # shown as a small line above the number.
+    coll = (f'<p class="collection">{esc(meta["collection"])}</p>'
+            if meta.get("collection") else "")
     head = f"""
-      <p class="num">{esc(meta['number'])}</p>
+      {coll}<p class="num">{esc(meta['number'])}</p>
       <h3>{esc(meta['title'])}</h3>
       <p class="sub">{esc(meta.get('subtitle', ''))}</p>
       <p class="author">{esc(meta['author'])}</p>

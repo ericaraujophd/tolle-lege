@@ -137,7 +137,8 @@
       #v(1pt)
       #text(size: 7.5pt, style: "italic")[Take up and read.] \
       #v(4pt)
-      #text(size: 7pt)[Public-domain text. Free to copy and share. \ #series-url]
+      // `back_rights` (title.toml, optional) replaces the default line.
+      #text(size: 7pt)[#meta.at("back_rights", default: "Public-domain text. Free to copy and share.") \ #series-url]
     ]
   }
 }

@@ -206,3 +206,6 @@ footer {
   .two-col { grid-template-columns: 1fr; gap: 8px; }
   .masthead { padding-top: 40px; }
 }
+
+/* The themed collection a title belongs to, above its number. */
+.book .collection { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #8a6d3b; margin: 0 0 0.15rem; }
