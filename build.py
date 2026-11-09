@@ -53,7 +53,7 @@ A collection is a gift set of notebooks held by a paper band (collection.toml
 lists them). The build compiles its band.typ, four bands on one landscape
 letter sheet, into docs/collections/<slug>/<slug>-band.pdf.
 
-Then it writes the duplex alignment test and the website page
+Then it writes the duplex alignment test, the trim jig (tools/trim-jig.typ) and the website page
 (docs/index.html) from tools/site/index.template.html, with one card per
 title. GitHub Pages serves the docs/ folder as the website.
 
@@ -333,6 +333,9 @@ def main():
 
     (DOCS / "tools").mkdir(parents=True, exist_ok=True)
     impose.alignment_test(str(DOCS / "tools" / "alignment-test.pdf"))
+    # The trim jig for rotary trimmers (tools/trim-jig.typ explains it).
+    compile_typst(ROOT / "tools" / "trim-jig.typ", DOCS / "tools" / "trim-jig.pdf")
+    print("trim jig: docs/tools/trim-jig.pdf")
     if not a.only:
         write_site(cards)
 
