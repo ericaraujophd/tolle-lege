@@ -120,13 +120,13 @@ To put it more plainly still: all of divine Scripture is a teacher of virtue and
 
 To notice this first about the book: some psalms are spoken as narrative, some as exhortation, some as prophecy, some as prayer, and some as confession and thanksgiving.
 
-Spoken as narrative are Psalms 19, 44, 49, 50, 73, 77, 78, 89, 107, 114, 127 and 137.
+Spoken as narrative are Psalms 19, 44, 49, 50, 73, 77, 78, 89, 107, 114-115, 127 and 137.
 
 Spoken as prayer are Psalms 17, 68, 90, 102, 132 and 142. Spoken as petition, prayer and supplication together are Psalms 5, 6, 7, 12, 13, 16, 25, 28, 31, 35, 38, 43, 54, 55, 56, 57, 59, 60, 61, 64, 83, 86, 88, 138, 140 and 143. Psalm 139 is spoken as petition and thanksgiving; and as petition alone, Psalms 3, 26, 69, 70, 71, 74, 79, 80, 109, 123, 130 and 131.
 
 Spoken as confession and thanks are Psalms 9, 75, 92, 105, 106, 107, 108, 111, 118, 136 and 138. Those that weave thanksgiving together with narrative are Psalms 9, 75, 106, 107, 118 and 138; and Psalm 111 weaves thanksgiving and narrative together with praise.
 
-Psalm 37 is spoken as exhortation. Spoken as prophecy are Psalms 21, 22, 45, 47 and 76; and Psalm 110 declares and prophesies at once. Those that urge and call us on are Psalms 29, 33, 81, 95, 96, 97, 98, 103, 104 and 114; and Psalm 149 urges us on with song.
+Psalm 37 is spoken as exhortation. Spoken as prophecy are Psalms 21, 22, 45, 47 and 76; and Psalm 110 declares and prophesies at once. Those that urge and call us on are Psalms 29, 33, 81, 95, 96, 97, 98, 103, 104 and 114-115; and Psalm 149 urges us on with song.
 
 Those that describe the life of virtue are Psalms 15, 112, 119, 125 and 133. Those that announce praise are Psalms 113, 117, 135, 145, 146, 147, 148 and 150. The psalms of thanksgiving are Psalms 8, 9, 18, 34, 46, 63, 77, 85, 116, 121, 122, 124, 126, 129 and 144. Those that proclaim someone blessed are Psalms 1, 32, 41, 119 and 128.
 
@@ -176,7 +176,7 @@ If they press on more fiercely, and your enemies grow into a crowd like an army 
 
 And since human nature is weak, if those who plot against you grow shameless again, cry out to God, so that you need not spend your time on them, and say the words of Psalm 28.
 
-If, in giving thanks, you want to learn how to make an offering to the Lord, with understanding of its meaning, sing Psalm 29.
+If, in giving thanks, you want to learn how you should make an offering to the Lord, understanding it in a spiritual sense, sing Psalm 29.
 
 And when you dedicate your house, both your soul, which receives the Lord, and the bodily house in which you live in the body, give thanks and say Psalm 30, and Psalm 127 from the Songs of Ascents.
 
@@ -196,11 +196,11 @@ But if you have resolved to watch over yourself, and you see the enemy attacking
 
 If your enemies attack and you endure the afflictions, and you want to learn the benefit of patience, sing Psalm 40.
 
-When you see many who are poor and in need and you want to show them mercy, you can welcome those who have already shown mercy and urge the others to do so by saying Psalm 41.
+When you see many who are poor and in need and you want them to receive mercy, you can commend those who have already shown mercy and urge the others to do the same by saying Psalm 41.
 
 If, while you are full of longing for God, you hear your enemies taunting you, do not be troubled. Understand the undying fruit of such longing, encourage your soul with hope in God, and so lighten and soothe its sorrows in this life, saying Psalm 42.
 
-If you want to keep remembering the good things God did for our fathers, the going out from Egypt and the time in the desert, and how God is good while human beings are ungrateful, you have Psalms 44, 78, 89, 105, 106, 107 and 114.
+If you want to keep remembering the good things God did for our fathers, the going out from Egypt and the time in the desert, and how God is good while human beings are ungrateful, you have Psalms 44, 78, 89, 105, 106, 107 and 114-115.
 
 If you have taken refuge in God and been brought safely through the troubles that surrounded you, and you want to give thanks to God and tell of his kindness to you, you have Psalm 46.
 
