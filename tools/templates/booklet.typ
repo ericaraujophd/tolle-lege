@@ -136,8 +136,7 @@
 
 // ------------------------------------------------- headings within a text
 // A small italic heading inside a continuous text, for titles that are one
-// long piece (a letter, a sermon) rather than numbered fragments. Used by
-// No. 03 (Athanasius). The headings are the editor's, to help the reader
+// long piece (a letter, a sermon) rather than numbered fragments. The headings are the editor's, to help the reader
 // find their way; they are not in the original.
 #let subhead(title) = {
   v(0.7em)
@@ -149,8 +148,7 @@
   ]
 }
 
-// A quotation set off from the text (Athanasius quotes the Psalms at
-// length): indented on both sides and a little smaller. The quotation is
+// A quotation set off from the text (for a long quotation of Scripture): indented on both sides and a little smaller. The quotation is
 // part of the author's text, not an editorial note.
 #let psalm(body) = {
   block(inset: (left: 0.18in, right: 0.1in), above: 0.55em, below: 0.65em,
@@ -186,8 +184,8 @@
     #meta.author, #meta.source.
 
     // `rights` (title.toml, optional) replaces the default sentence, for a
-    // title whose translation is not in the public domain (No. 03 is a new
-    // translation under CC BY).
+    // title whose translation is not in the public domain (a new
+    // translation under CC BY, say).
     #meta.translation #meta.at("rights", default: "The translation is in the public domain.")
 
     #meta.edition_note
