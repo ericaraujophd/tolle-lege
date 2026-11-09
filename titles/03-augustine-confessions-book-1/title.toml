@@ -1,0 +1,32 @@
+# =========================================================================
+# title.toml  --  everything that is specific to this title
+# =========================================================================
+# Read by book.typ and cover.typ (through the shared templates in tools/)
+# and by the top-level build.py (for file names and the website).
+
+status = "available"
+slug = "03-augustine-confessions-book-1"
+
+number = "No. 03"
+title = "Our Restless Heart"
+subtitle = "Confessions, Book One"
+author = "Augustine of Hippo"
+source = "Confessions, Book I (397-400)"
+translation = "Translated by Albert C. Outler. Westminster Press, 1955 (Library of Christian Classics, vol. 7)."
+rights = "The translation was released into the public domain by its copyright holder."
+edition_note = "The text is Outler's, from the Christian Classics Ethereal Library edition. His Scripture references are given in small type in the text; his other notes are on the Notes page, renumbered. Augustine's chapter and paragraph numbers are kept, so the book can be read alongside any other edition."
+editor = "Eric Araújo"
+date = "Fall 2026"
+
+# Back cover
+quote = "“Thou hast made us for thyself and restless is our heart until it comes to rest in thee.”"
+quote_ref = "Confessions I.1.1"
+blurb = "Augustine begins his story where it begins, in God, then looks back at the infant, the child and the schoolboy he was, and finds grace at work even there."
+
+accent = "#3a8a4f"                 # mid-tone, so the colour shows on the inkjet
+cover_paper = "65 lb stone cardstock"
+text_paper = "24 lb cream"
+cover_title_size = 26
+
+# Website only
+summary = "Augustine's prayer that opens the Confessions, and his look back at infancy, childhood and school. A companion to No. 04."

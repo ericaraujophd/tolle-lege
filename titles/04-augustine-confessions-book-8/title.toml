@@ -1,0 +1,32 @@
+# =========================================================================
+# title.toml  --  everything that is specific to this title
+# =========================================================================
+# Read by book.typ and cover.typ (through the shared templates in tools/)
+# and by the top-level build.py (for file names and the website).
+
+status = "available"
+slug = "04-augustine-confessions-book-8"
+
+number = "No. 04"
+title = "Take Up and Read"
+subtitle = "Confessions, Book Eight"
+author = "Augustine of Hippo"
+source = "Confessions, Book VIII (397-400)"
+translation = "Translated by Albert C. Outler. Westminster Press, 1955 (Library of Christian Classics, vol. 7)."
+rights = "The translation was released into the public domain by its copyright holder."
+edition_note = "The text is Outler's, from the Christian Classics Ethereal Library edition. His Scripture references are given in small type in the text; his other notes are on the Notes page, renumbered. Augustine's chapter and paragraph numbers are kept, so the book can be read alongside any other edition."
+editor = "Eric Araújo"
+date = "Fall 2026"
+
+# Back cover
+quote = "“Pick it up, read it; pick it up, read it.”"
+quote_ref = "Confessions VIII.12.29"
+blurb = "The book this series is named for: in a garden in Milan, a divided will, a friend's story, a child's chant over a wall, and a verse of Paul that ends the struggle."
+
+accent = "#7b4fa8"                 # mid-tone, so the colour shows on the inkjet
+cover_paper = "65 lb stone cardstock"
+text_paper = "24 lb cream"
+cover_title_size = 26
+
+# Website only
+summary = "The garden in Milan: Augustine's divided will, the stories that undo him, and the child's song, \"take up and read.\" The scene that gives this series its name."

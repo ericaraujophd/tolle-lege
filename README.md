@@ -17,6 +17,8 @@ This README is for building the files yourself or adding a new title.
 |---|---|---|---|
 | 01 | *On Curiosity and Studiousness* | Thomas Aquinas | available |
 | 02 | *On Diversion*, from the *Pensées* | Blaise Pascal | available |
+| 03 | *Our Restless Heart*: *Confessions*, Book One | Augustine of Hippo | available |
+| 04 | *Take Up and Read*: *Confessions*, Book Eight | Augustine of Hippo | available |
 
 Always in the most recent translation that is in the public domain.
 
