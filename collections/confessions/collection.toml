@@ -1,0 +1,13 @@
+# =========================================================================
+# collection.toml  --  a gift set of Tolle Lege books, held by a band
+# =========================================================================
+# Read by band.typ (through tools/templates/collection-band.typ) and by
+# build.py, which writes docs/collections/<slug>/<slug>-band.pdf.
+
+slug = "confessions"
+name = "Augustine’s Confessions"
+label = "Books"
+side_in = 0.3            # two books of 40-44 pages, about 7 mm together
+# The books in the set, in order (folder names in titles/). Their numbers
+# and accent colours are read from each title.toml.
+titles = ["03-augustine-confessions-book-1", "04-augustine-confessions-book-8"]

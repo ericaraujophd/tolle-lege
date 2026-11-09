@@ -176,7 +176,8 @@ small ticks, overlap the ends at the back, seal.
 
 | Collection | Notebooks |
 |---|---|
-| Fall 2026 Collection | 01 First Snow, 02 Apple Tree, 03 Dragon and Lion |
+| Fall 2026 Collection | Notebooks 01 First Snow, 02 Apple Tree, 03 Dragon and Lion |
+| Augustine’s Confessions | Books No. 03 (Book One) and No. 04 (Book Eight) |
 
 ## License
 

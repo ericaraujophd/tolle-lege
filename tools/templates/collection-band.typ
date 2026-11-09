@@ -54,7 +54,9 @@
   let X0 = (11in - BW) / 2           // left edge of the bands on the sheet
   let Y0 = (8.5in - N * BH) / 2      // top edge of the first band
   let mark = 0.5pt + luma(140)
-  let SIDE = 0.4in         // thickness of the stacked notebooks
+  // Thickness of the stack: three notebooks are about 10 mm; two 40-page
+  // books about 7 mm. A collection may set `side_in` (inches).
+  let SIDE = meta.at("side_in", default: 0.4) * 1in
   let F = (BW - 3.5in) / 2           // where the front panel starts
   let folds = (F - SIDE, F, F + 3.5in, F + 3.5in + SIDE)
 
@@ -70,14 +72,19 @@
       #v(0.09in)
       #text(size: 15pt, style: "italic")[#title]
       #v(0.1in)
-      #text(size: 6.5pt, tracking: 0.25em, fill: luma(90))[NOTEBOOKS]
+      // `label` (collection.toml) names what is inside: NOTEBOOKS (default)
+      // or BOOKS.
+      #text(size: 6.5pt, tracking: 0.25em, fill: luma(90))[#upper(meta.at("label", default: "Notebooks"))]
       #h(0.5em)
       // "No. 01 · 02 · 03", each number in its notebook's accent colour
       #text(size: 9pt, style: "italic")[No.]
       #h(0.15em)
       #for (i, b) in books.enumerate() {
         if i > 0 { text(size: 9pt, fill: luma(120))[ · ] }
-        text(size: 9pt, style: "italic", fill: rgb(b.accent), b.num)
+        // A notebook has `num` ("01"); a book has only `number` ("No. 03"),
+        // so its digits are taken from that.
+        let n = b.at("num", default: b.number.replace("No. ", ""))
+        text(size: 9pt, style: "italic", fill: rgb(b.accent), n)
       }
     ]
   }
