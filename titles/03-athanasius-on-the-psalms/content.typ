@@ -216,7 +216,7 @@ If the one who plots against you orders your house to be watched, and you escape
 
 If your enemies taunt and afflict you, and those who seem to be your friends slander you with idle talk, and you are grieved for a while in your thoughts, you can still take comfort by singing praise to God and saying the words of Psalm 55.
 
-Against those who play the hypocrite and boast to your face, say Psalm 58, to put them to shame. Against those who rush at you savagely and want to take your life, set your submission to God, and take courage. The more they rage, the more you submit to the Lord, and say the words of Psalm 62.
+Against those who play the hypocrite and boast in outward show, say Psalm 58, to put them to shame. Against those who rush at you savagely and want to take your life, set your submission to God, and take courage. The more they rage, the more you submit to the Lord, and say the words of Psalm 62.
 
 If, when you are persecuted, you go off into the desert, do not be afraid as though you were alone there. You have God there; rise early to him and sing Psalm 63.
 
@@ -254,7 +254,7 @@ Since our nature is weak, if the pressures of life ever leave you poor and dispi
 
 And since it is fitting for us to give thanks to God through all things and in everything, when you want to bless him, you have Psalms 103 and 104 to stir up your soul and to say.
 
-Do you want to praise God, and to know how and for what to praise him, and with what words? You have Psalms 105, 107, 135, 146, 147, 148 and 150.
+Do you want to praise God, and to know how and for what to praise him, and who ought to give him praise? You have Psalms 105, 107, 135, 146, 147, 148 and 150.
 
 Do you have faith, as the Lord said, and do you believe what you say when you pray? Say Psalm 116.
 
@@ -276,9 +276,9 @@ If, though you are young, you are chosen over your brothers for some position of
 
 And if you want to sing psalms that have the Alleluia as their response, you have Psalms 105, 106, 107, 112, 113, 114, 115, 116, 117, 118, 119, 135, 136, 146, 147, 148, 149 and 150.
 
-When you want to sing on your own about the Saviour, you will find such things in almost every psalm. But above all you have Psalms 45 and 110, which show his true birth from the Father and his coming in the flesh; Psalms 22 and 69, which foretell the divine cross, how great a plot he bore for our sake, and how much he suffered; Psalms 2 and 109, which show the plotting and wickedness of the Jews and the betrayal by Judas Iscariot; and Psalms 21, 50 and 72, which show his kingship and his power to judge, his coming to us again in the flesh, and the calling of the Gentiles. Psalm 16 shows his resurrection from the dead; Psalms 24 and 47 proclaim his going up into heaven; and when you read Psalms 93, 96, 98 and 99, you will be able to see the good things the Saviour has done for us through his sufferings.
+When you want to sing specifically about the Saviour, you will find such things in almost every psalm. But above all you have Psalms 45 and 110, which show his true birth from the Father and his coming in the flesh; Psalms 22 and 69, which foretell the divine cross, how great a plot he bore for our sake, and how much he suffered; Psalms 2 and 109, which show the plotting and wickedness of the Jews and the betrayal by Judas Iscariot; and Psalms 21, 50 and 72, which show his kingship and his power to judge, his coming to us again in the flesh, and the calling of the Gentiles. Psalm 16 shows his resurrection from the dead; Psalms 24 and 47 proclaim his going up into heaven; and when you read Psalms 93, 96, 98 and 99, you will be able to see the good things the Saviour has done for us through his sufferings.
 
-This, then, is the character of the Book of Psalms, and how it helps us: it has psalms of its own kind, and in the rest it holds many prophecies of the coming in the body of our Lord and Saviour Jesus Christ, as I said before.
+This, then, is the character of the Book of Psalms, and how it helps us: it has psalms suited to each particular need, and in the rest it holds many prophecies of the coming in the body of our Lord and Saviour Jesus Christ, as I said before.
 
 #subhead[Why the psalms are sung]
 
@@ -306,6 +306,6 @@ For God commanded Moses to write the great Song and to teach it to the people; a
 
 I myself, said the old man, have heard from wise men that in Israel long ago they drove out demons and exposed the plots the demons lay against people simply by reading the Scriptures. So he said that those who leave these words aside and put together persuasive words of their own from outside, calling themselves exorcists on the strength of them, deserve every condemnation. They are rather playing games, and they make themselves a laughing stock for the demons, as happened to the Jewish sons of Sceva when they too tried to drive out demons in that way. When the demons hear such words from such people, they make sport of them. But the words of the saints they fear, and cannot even bear. For the Lord himself is in the words of the Scriptures; and since they could not bear him, they cried out, 'I beg you, do not torment me before the time'; for they burned merely at seeing the Lord present. In the same way Paul gave his commands to the unclean spirits, and in the same way the demons were subject to the disciples. In the days of Elisha the prophet the hand of the Lord came upon him, and he prophesied to the three kings about the waters, while the minstrel played at his command.
 
-So now too, if anyone cares for those who suffer, let him say these words. He will help the sufferer more, and will show his own faith to be true and firm; and God, seeing that faith, will grant complete healing to those who ask. The holy psalmist knew this, and said in Psalm 119, 'I will meditate on your statutes; I will not forget your words'; and again, 'Your statutes have been my songs in the house of my pilgrimage.' For in these words they gained their salvation, saying, 'If your law had not been my meditation, I would have perished in my humiliation.' So Paul too made his own disciple safe with these words, saying, 'Meditate on these things; give yourself to them, so that your progress may be plain to all.'
+So now too, if anyone cares for those who suffer, let him say these words. He will help the sufferer more, and will show his own faith to be true and firm; and God, seeing that faith, will grant complete healing to those who ask. The holy psalmist knew this, and said in Psalm 119, 'I will meditate on your statutes; I will not forget your words'; and again, 'Your statutes have been my songs in the place of my pilgrimage.' For in these words they gained their salvation, saying, 'If your law had not been my meditation, I would have perished in my humiliation.' So Paul too made his own disciple safe with these words, saying, 'Meditate on these things; give yourself to them, so that your progress may be plain to all.'
 
 You too, then, meditate on these things, and read the Psalms with understanding. Then, led by the Spirit, you will be able to grasp the meaning in each one; and you will strive after the same life that was lived by those holy men who, carried by God, first spoke these words.
