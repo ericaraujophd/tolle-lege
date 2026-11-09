@@ -16,7 +16,7 @@ source = "Epistula ad Marcellinum, Patrologia Graeca 27, cols. 11-46"
 translation = "A new translation from the Greek, made for Tolle Lege, 2026."
 rights = "The Greek text is in the public domain; this translation is released under CC BY 4.0."
 back_rights = "Public-domain text, new translation (CC BY 4.0). Free to copy and share."
-edition_note = "This is a new translation, made from the Greek text printed in Migne's Patrologia Graeca, vol. 27 (1857). Athanasius quotes the Psalms from the Greek Bible; the quotations are translated as he gives them. Psalm numbers follow English Bibles. In three places the printed Greek gives a psalm number that is plainly a copying slip (Ps. 105 for 15, Ps. 17 for 18, and one unreadable number in the list of psalms of praise); the intended psalm is given, and the unreadable number is left out. The section headings are the editor's."
+edition_note = "This is a new translation, made from the Greek text printed in Migne's Patrologia Graeca, vol. 27 (1857). Athanasius quotes the Psalms from the Greek Bible; the quotations are translated as he gives them. Psalm numbers follow English Bibles. In four places the printed Greek gives a psalm number that is plainly a copying slip (Ps. 105 for 15, Ps. 17 for 18, Ps. 41 for 47, and one unreadable number in the list of psalms of praise); the intended psalm is given, and the unreadable number is left out. The section headings are the editor's."
 editor = "Eric Araújo"        # "Designed by", on page 2 and in the colophon
 date = "Fall 2026"
 

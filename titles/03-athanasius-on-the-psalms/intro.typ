@@ -38,6 +38,10 @@ changed to match English Bibles, so you can look them up directly.
 read differently from your Bible. Psalm 151, which he mentions, is found
 only in the Greek Bible.
 
+*"The Jews."* Where Athanasius writes of the plot of "the Jews" against
+Jesus, he means, as the Gospels do, those who sought his death. The
+translation keeps his words.
+
 *The old man.* Most of the letter is his teaching, reported by Athanasius;
 the voice changes only at the beginning and, briefly, near the end.
 
