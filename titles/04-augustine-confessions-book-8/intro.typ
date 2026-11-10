@@ -34,7 +34,7 @@ numbered paragraphs (*1*, *2*, *3*...). These are the same in every
 edition, so "VIII.12.29" means Book VIII, chapter 12, paragraph 29, whatever
 translation the person next to you is holding.
 
-*References* in small grey type, such as #text(size: 6.8pt, fill: luma(110))[(Ps. 139:8)], are the
+*References* in small type, such as #text(size: 7.3pt, fill: luma(35))[(Ps. 139:8)], are the
 Scripture Augustine is quoting or echoing. He thinks in the words of the
 Bible, above all the Psalms.
 

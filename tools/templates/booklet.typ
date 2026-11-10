@@ -166,9 +166,11 @@
   block(below: 1em, text(size: 8.2pt, style: "italic", body))
 }
 
-// An inline Scripture reference, e.g. "(Ps. 35:10)": small and grey so it
-// does not interrupt the reading.
-#let ref(body) = text(size: 6.8pt, fill: luma(110), body)
+// An inline Scripture reference, e.g. "(Ps. 35:10)": a little smaller than
+// the text. It was light grey (luma 110) at first, but that printed too
+// faint on the inkjet (Eric, 2026-11-09); now near-black, so it reads
+// easily, and only the smaller size sets it apart.
+#let ref(body) = text(size: 7.3pt, fill: luma(35), body)
 
 // The standard paragraph number at the start of a paragraph (the "29" of
 // VIII.12.29), in small bold, so readers with any edition can follow.
